@@ -9,6 +9,7 @@ import { FatalCombatReplayModule } from './combat/module/fatal-combat-replay.mod
 import { InventoryModule } from './inventory/module/inventory.module';
 import { ItemModule } from './inventory/module/item.module';
 import { LootModule } from './loot/module/loot.module';
+import { PlayerModule } from './player/module/player.module';
 
 @Module({
   imports: [
@@ -16,7 +17,8 @@ import { LootModule } from './loot/module/loot.module';
     PlayerClassModule, PlayerClassModifiersModule,
     CombatModule, CombatHistoryModule, FatalCombatReplayModule,
     InventoryModule, ItemModule,
-    LootModule
+    LootModule,
+    PlayerModule
   ],
 })
 export class AppModule implements NestModule {

@@ -1,0 +1,101 @@
+syntax = "proto3";
+
+package Player;
+
+option java_multiple_files = true;
+option java_package = "com.chocolatada.player.grpc";
+option java_outer_classname = "PlayerProto";
+
+message GetPlayerByIdRequest {
+  int64 player_id = 1;
+}
+
+message GetPlayerByUserIdRequest {
+  int64 user_id = 1;
+}
+
+message TopPlayersRequest {
+  int32 limit = 1;
+  optional bool alive = 2;
+}
+
+message UpdatePlayerRequest {
+  int64 player_id = 1;
+  PlayerUpdateData updates = 2;
+}
+
+message DeletePlayerRequest {
+  int64 player_id = 1;
+}
+
+message MarkPlayerAsDeadRequest {
+  int64 player_id = 1;
+}
+
+message PlayerResponse {
+  Player player = 1;
+}
+
+message TopPlayersResponse {
+  repeated PlayerSummary players = 1;
+}
+
+message UpdatePlayerResponse {
+  string message = 1;
+}
+
+message DeletePlayerResponse {
+  string message = 1;
+}
+
+message MarkPlayerAsDeadResponse {
+  string message = 1;
+}
+
+message Player {
+  int64 id = 1;
+  int64 user_id = 2;
+  int64 class_id = 3;
+  string name = 4;
+  bool alive = 5;
+  int32 gold = 6;
+  int32 level = 7;
+  int32 experience = 8;
+  int32 experience_limit = 9;
+  int32 free_stat_points = 10;
+  int32 hp_bonus = 11;
+  int32 atk_bonus = 12;
+  int32 def_bonus = 13;
+  int32 stamina_bonus = 14;
+  int32 accuracy_bonus = 15;
+  int32 evasion_bonus = 16;
+}
+
+message PlayerSummary {
+  string name = 1;
+  int32 level = 2;
+}
+
+message PlayerUpdateData {
+  optional string name = 1;
+  optional int32 gold = 2;
+  optional int32 level = 3;
+  optional int32 experience = 4;
+  optional int32 experience_limit = 5;
+  optional int32 free_stat_points = 6;
+  optional int32 hp_bonus = 7;
+  optional int32 atk_bonus = 8;
+  optional int32 def_bonus = 9;
+  optional int32 stamina_bonus = 10;
+  optional int32 accuracy_bonus = 11;
+  optional int32 evasion_bonus = 12;
+}
+
+service PlayerService {
+  rpc GetPlayerById(GetPlayerByIdRequest) returns (PlayerResponse);
+  rpc GetPlayerByUserId(GetPlayerByUserIdRequest) returns (PlayerResponse);
+  rpc GetTopPlayersByLevel(TopPlayersRequest) returns (TopPlayersResponse);
+  rpc UpdatePlayer(UpdatePlayerRequest) returns (UpdatePlayerResponse);
+  rpc DeletePlayer(DeletePlayerRequest) returns (DeletePlayerResponse);
+  rpc MarkPlayerAsDead(MarkPlayerAsDeadRequest) returns (MarkPlayerAsDeadResponse);
+}
