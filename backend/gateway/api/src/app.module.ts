@@ -10,6 +10,9 @@ import { InventoryModule } from './inventory/module/inventory.module';
 import { ItemModule } from './inventory/module/item.module';
 import { LootModule } from './loot/module/loot.module';
 import { PlayerModule } from './player/module/player.module';
+import { TowerModule } from './tower/module/tower.module';
+import { TowerPlayerProgressModule } from './tower/module/tower-player-progress.module';
+import { TowerEnemyModule } from './tower/module/tower-enemy.module';
 
 @Module({
   imports: [
@@ -18,7 +21,8 @@ import { PlayerModule } from './player/module/player.module';
     CombatModule, CombatHistoryModule, FatalCombatReplayModule,
     InventoryModule, ItemModule,
     LootModule,
-    PlayerModule
+    PlayerModule,
+    TowerModule, TowerPlayerProgressModule, TowerEnemyModule
   ],
 })
 export class AppModule implements NestModule {

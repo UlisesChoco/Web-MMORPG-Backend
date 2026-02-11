@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package Tower;
+
+option java_multiple_files = true;
+option java_package = "com.chocolatada.tower_enemy.grpc";
+option java_outer_classname = "TowerPlayerProgressProto";
+
+message ListTowerEnemiesRequest {
+  int64 tower_id = 1;
+}
+
+message ListTowerEnemiesResponse {
+  repeated TowerEnemy enemies = 1;
+}
+
+message TowerEnemy {
+  int64 enemyId = 1;
+}
+
+service TowerEnemyService {
+  rpc ListTowerEnemies (ListTowerEnemiesRequest) returns (ListTowerEnemiesResponse);
+}
