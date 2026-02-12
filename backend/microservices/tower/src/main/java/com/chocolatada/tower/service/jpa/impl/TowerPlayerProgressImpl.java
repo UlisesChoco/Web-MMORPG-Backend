@@ -32,13 +32,30 @@ public class TowerPlayerProgressImpl implements ITowerPlayerProgressService {
         if(playerId < 1)
             throw new InvalidTowerDataException("El ID del jugador no es válido: " + playerId);
 
-        TowerPlayerProgressEntity entity = TowerPlayerProgressEntity.builder()
-                .tower(towerEntity)
-                .playerId(playerId)
-                .build();
+        TowerPlayerProgressEntity entity;
+
+        try {
+            entity = getPlayerProgressEntity(playerId);
+
+            entity.setTower(towerEntity);
+            entity.setPlayerId(playerId);
+        } catch (InvalidTowerDataException invalidTowerDataException) {
+            //if doesn't exist create new one
+            entity = TowerPlayerProgressEntity.builder()
+                    .tower(towerEntity)
+                    .playerId(playerId)
+                    .build();
+        }
 
         towerPlayerProgressRepository.save(entity);
 
         return true;
+    }
+
+    @Override
+    public TowerPlayerProgressEntity getPlayerProgressEntity(Long playerId) throws InvalidTowerDataException {
+        return towerPlayerProgressRepository.findById(playerId).orElseThrow(() ->
+                new InvalidTowerDataException("No existe progreso para el jugador con ID: " + playerId)
+        );
     }
 }
