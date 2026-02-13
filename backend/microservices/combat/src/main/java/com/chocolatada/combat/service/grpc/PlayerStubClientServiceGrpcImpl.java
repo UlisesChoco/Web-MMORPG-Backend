@@ -46,6 +46,20 @@ public class PlayerStubClientServiceGrpcImpl {
         return EntityMapper.toEntity(scaledStats);
     }
 
+    public void updatePlayerData(long playerId, int gold, int experience) {
+        PlayerUpdateData data = PlayerUpdateData.newBuilder()
+                .setGold(gold)
+                .setExperience(experience)
+                .build();
+
+        UpdatePlayerRequest request = UpdatePlayerRequest.newBuilder()
+                .setPlayerId(playerId)
+                .setUpdates(data)
+                .build();
+
+        playerStub.updatePlayer(request);
+    }
+
     public void markPlayerAsDead(Long playerId) throws StatusRuntimeException {
         MarkPlayerAsDeadRequest request = MarkPlayerAsDeadRequest.newBuilder()
                 .setPlayerId(playerId)

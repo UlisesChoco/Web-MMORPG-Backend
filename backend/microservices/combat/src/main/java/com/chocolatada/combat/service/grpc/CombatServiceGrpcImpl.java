@@ -81,6 +81,7 @@ public class CombatServiceGrpcImpl extends CombatServiceGrpc.CombatServiceImplBa
 
             LootGrpc loot = LootGrpc.newBuilder()
                     .setGold(0)
+                    .setExperience(0)
                     .build();
 
             if (combat.getWasFatal()) {
@@ -93,6 +94,7 @@ public class CombatServiceGrpcImpl extends CombatServiceGrpc.CombatServiceImplBa
             } else {
                 loot = lootStubClientServiceGrpc.roll(enemyGrpc);
                 inventoryStubClientServiceGrpc.addItemToInventory(playerId, loot.getItemId());
+                playerStubClientServiceGrpc.updatePlayerData(playerId, enemyGrpc.getGold(), enemyGrpc.getExperience());
                 log.info("Combate procesado. El jugador sobrevivió. Botín generado.");
             }
 

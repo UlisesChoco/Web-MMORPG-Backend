@@ -43,5 +43,6 @@ export interface StateGrpc {
 
 export interface LootGrpc {
     gold: number;
+    experience: number;
     itemId: Long | null;
 }

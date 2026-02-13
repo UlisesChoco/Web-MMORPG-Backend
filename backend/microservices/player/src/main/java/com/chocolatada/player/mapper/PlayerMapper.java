@@ -28,17 +28,17 @@ public class PlayerMapper {
 
     public static PlayerEntity toPlayer(PlayerEntity player, PlayerUpdateDTO playerUpdateDTO) {
         playerUpdateDTO.getName().ifPresent(name -> player.setName(name));
-        playerUpdateDTO.getGold().ifPresent(gold -> player.setGold(gold));
+        playerUpdateDTO.getGold().ifPresent(gold -> player.setGold(player.getGold() + gold));
         playerUpdateDTO.getLevel().ifPresent(level -> player.setLevel(level));
-        playerUpdateDTO.getExperience().ifPresent(experience -> player.setExperience(experience));
+        playerUpdateDTO.getExperience().ifPresent(experience -> player.setExperience(player.getExperience() + experience));
         playerUpdateDTO.getExperienceLimit().ifPresent(experienceLimit -> player.setExperienceLimit(experienceLimit));
-        playerUpdateDTO.getFreeStatPoints().ifPresent(freeStatPoints -> player.setFreeStatPoints(freeStatPoints));
-        playerUpdateDTO.getHpBonus().ifPresent(hpBonus -> player.setHpBonus(hpBonus));
-        playerUpdateDTO.getAtkBonus().ifPresent(atkBonus -> player.setAtkBonus(atkBonus));
-        playerUpdateDTO.getDefBonus().ifPresent(defBonus -> player.setDefBonus(defBonus));
-        playerUpdateDTO.getStaminaBonus().ifPresent(staminaBonus -> player.setStaminaBonus(staminaBonus));
-        playerUpdateDTO.getAccuracyBonus().ifPresent(accuracyBonus -> player.setAccuracyBonus(accuracyBonus));
-        playerUpdateDTO.getEvasionBonus().ifPresent(evasionBonus -> player.setEvasionBonus(evasionBonus));
+        playerUpdateDTO.getFreeStatPoints().ifPresent(freeStatPoints -> player.setFreeStatPoints(player.getFreeStatPoints() + freeStatPoints));
+        playerUpdateDTO.getHpBonus().ifPresent(hpBonus -> player.setHpBonus(player.getHpBonus() + hpBonus));
+        playerUpdateDTO.getAtkBonus().ifPresent(atkBonus -> player.setAtkBonus(player.getAtkBonus() + atkBonus));
+        playerUpdateDTO.getDefBonus().ifPresent(defBonus -> player.setDefBonus(player.getDefBonus() + defBonus));
+        playerUpdateDTO.getStaminaBonus().ifPresent(staminaBonus -> player.setStaminaBonus(player.getStaminaBonus() + staminaBonus));
+        playerUpdateDTO.getAccuracyBonus().ifPresent(accuracyBonus -> player.setAccuracyBonus(player.getAccuracyBonus() + accuracyBonus));
+        playerUpdateDTO.getEvasionBonus().ifPresent(evasionBonus -> player.setEvasionBonus(player.getEvasionBonus() + evasionBonus));
         return player;
     }
 

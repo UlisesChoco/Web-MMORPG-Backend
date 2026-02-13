@@ -6,6 +6,7 @@ import com.chocolatada.player.entity.PlayerEntity;
 import com.chocolatada.player.exception.InvalidPlayerDataException;
 import com.chocolatada.player.mapper.PlayerMapper;
 import com.chocolatada.player.repository.IPlayerRepository;
+import com.chocolatada.player.service.domain.IPlayerLevelService;
 import com.chocolatada.player.service.jpa.IPlayerService;
 import com.chocolatada.player.validator.PlayerValidator;
 import jakarta.transaction.Transactional;
@@ -20,6 +21,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PlayerServiceImpl implements IPlayerService {
     private final IPlayerRepository playerRepository;
+
+    private final IPlayerLevelService playerLevelService;
 
     @Override
     public PlayerEntity findById(Long id) throws InvalidPlayerDataException {
@@ -52,6 +55,14 @@ public class PlayerServiceImpl implements IPlayerService {
         PlayerValidator.validatePlayerUpdateDTO(playerUpdateDTO);
 
         player = PlayerMapper.toPlayer(player, playerUpdateDTO);
+
+        if(player.getExperience() >= player.getExperienceLimit()) {
+            int newLevel = player.getLevel() + 1;
+            player.setLevel(newLevel);
+            player.setExperience(0);
+            player.setExperienceLimit(playerLevelService.calculateExperienceLimit(newLevel));
+            player.setFreeStatPoints(player.getFreeStatPoints() + 1);
+        }
 
         return playerRepository.save(player);
     }

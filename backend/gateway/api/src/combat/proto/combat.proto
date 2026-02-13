@@ -56,7 +56,8 @@ message StateGrpc {
 
 message LootGrpc {
   int32 gold = 1;
-  optional int64 item_id = 2;
+  int32 experience = 2;
+  optional int64 item_id = 3;
 }
 
 service CombatService {

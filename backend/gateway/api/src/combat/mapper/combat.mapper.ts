@@ -44,7 +44,8 @@ export class CombatMapper {
             turns: turnsMapped,
             loot: {
                 gold: response.loot.gold ?? 0,
-                itemId: Util.longToNumber(response.loot.itemId),
+                experience: response.loot.experience ?? 0,
+                itemId: response.loot.itemId?.toNumber() ?? undefined,
             },
         };
 

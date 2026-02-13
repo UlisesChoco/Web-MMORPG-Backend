@@ -28,6 +28,6 @@ public class LootStubClientServiceGrpcImpl {
                 .itemId(itemId)
                 .build();
 
-        return LootMapper.toLootGrpc(loot);
+        return LootMapper.toLootGrpc(loot, enemyGrpc.getExperience());
     }
 }
