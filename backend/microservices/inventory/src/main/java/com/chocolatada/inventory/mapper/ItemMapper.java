@@ -4,9 +4,12 @@ import com.chocolatada.inventory.dto.InventoryItemDTO;
 import com.chocolatada.inventory.entity.ItemEntity;
 import com.chocolatada.inventory.entity.ItemSlot;
 import com.chocolatada.inventory.entity.ItemType;
+import com.chocolatada.inventory.grpc.SlotType;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.chocolatada.inventory.grpc.SlotType.SLOT_TYPE_UNSPECIFIED;
 
 public class ItemMapper {
     public static InventoryItemDTO toInventoryItemDTO(ItemEntity entity) {
@@ -44,18 +47,18 @@ public class ItemMapper {
                 .setInventoryItemId(dto.getInventoryItemId())
                 .setName(dto.getName())
                 .setDescription(dto.getDescription())
-                .setGold(dto.getGold())
-                .setRequiredLevel(dto.getRequiredLevel())
+                .setGold((dto.getGold() != null) ? dto.getGold() : 0)
+                .setRequiredLevel((dto.getRequiredLevel() != null) ? dto.getRequiredLevel() : 0)
                 .setType(toProtoItemType(dto.getType()))
                 .setSlot(toProtoSlotType(dto.getSlot()))
-                .setHpBonus(dto.getHpBonus())
-                .setAtkBonus(dto.getAtkBonus())
-                .setDefBonus(dto.getDefBonus())
-                .setStaminaBonus(dto.getStaminaBonus())
-                .setAccuracyBonus(dto.getAccuracyBonus())
-                .setEvasionBonus(dto.getEvasionBonus())
-                .setCritRateBonus(dto.getCritRateBonus())
-                .setCritDamageBonus(dto.getCritDamageBonus())
+                .setHpBonus((dto.getHpBonus() != null) ? dto.getHpBonus() : 0)
+                .setAtkBonus((dto.getAtkBonus() != null) ? dto.getAtkBonus() : 0)
+                .setDefBonus((dto.getDefBonus() != null) ? dto.getDefBonus() : 0)
+                .setStaminaBonus((dto.getStaminaBonus() != null) ? dto.getStaminaBonus() : 0)
+                .setAccuracyBonus((dto.getAccuracyBonus() != null) ? dto.getAccuracyBonus() : 0)
+                .setEvasionBonus((dto.getEvasionBonus() != null) ? dto.getEvasionBonus() : 0)
+                .setCritRateBonus((dto.getCritRateBonus() != null) ? dto.getCritRateBonus() : 0)
+                .setCritDamageBonus((dto.getCritDamageBonus() != null) ? dto.getCritDamageBonus() : 0)
                 .setEquipped(dto.getEquipped())
                 .build();
     }
@@ -82,7 +85,7 @@ public class ItemMapper {
 
     public static com.chocolatada.inventory.grpc.SlotType toProtoSlotType(ItemSlot slot) {
         if (slot == null) {
-            return com.chocolatada.inventory.grpc.SlotType.NONE;
+            return SLOT_TYPE_UNSPECIFIED;
         }
         return switch (slot) {
             case HEAD -> com.chocolatada.inventory.grpc.SlotType.HEAD;
@@ -94,7 +97,7 @@ public class ItemMapper {
             case OFF_HAND -> com.chocolatada.inventory.grpc.SlotType.OFF_HAND;
             case RING -> com.chocolatada.inventory.grpc.SlotType.RING;
             case NECKLACE -> com.chocolatada.inventory.grpc.SlotType.NECKLACE;
-            case NONE -> com.chocolatada.inventory.grpc.SlotType.NONE;
+            default -> throw new IllegalStateException("ItemSlot inesperado: " + slot);
         };
     }
 
@@ -112,7 +115,7 @@ public class ItemMapper {
             case OFF_HAND -> ItemSlot.OFF_HAND;
             case RING -> ItemSlot.RING;
             case NECKLACE -> ItemSlot.NECKLACE;
-            case NONE -> ItemSlot.NONE;
+            case SLOT_TYPE_UNSPECIFIED -> ItemSlot.NONE;
             case UNRECOGNIZED -> ItemSlot.NONE;
         };
     }

@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package Tower;
+
+option java_multiple_files = true;
+option java_package = "com.chocolatada.tower_player_progress.grpc";
+option java_outer_classname = "TowerPlayerProgressProto";
+
+message GetPlayerTowerProgressRequest {
+  int64 player_id = 1;
+}
+
+message GetPlayerTowerProgressResponse {
+  TowerPlayerProgress progress = 1;
+}
+
+message TowerPlayerProgress {
+  int64 floor = 1;
+  string level_range = 2;
+}
+
+message RegisterPlayerTowerProgressRequest {
+  int64 tower_id = 1;
+  int64 player_id = 2;
+}
+
+message RegisterPlayerTowerProgressResponse {
+  string message = 1;
+}
+
+service TowerPlayerProgressService {
+  rpc GetPlayerTowerProgress (GetPlayerTowerProgressRequest) returns (GetPlayerTowerProgressResponse);
+  rpc RegisterPlayerTowerProgress (RegisterPlayerTowerProgressRequest) returns (RegisterPlayerTowerProgressResponse);
+}

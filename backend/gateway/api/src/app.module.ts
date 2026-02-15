@@ -6,12 +6,23 @@ import { PlayerClassModifiersModule } from './class/module/player-class-modifier
 import { CombatModule } from './combat/module/combat.module';
 import { CombatHistoryModule } from './combat/module/combat-history.module';
 import { FatalCombatReplayModule } from './combat/module/fatal-combat-replay.module';
+import { InventoryModule } from './inventory/module/inventory.module';
+import { ItemModule } from './inventory/module/item.module';
+import { LootModule } from './loot/module/loot.module';
+import { PlayerModule } from './player/module/player.module';
+import { TowerModule } from './tower/module/tower.module';
+import { TowerPlayerProgressModule } from './tower/module/tower-player-progress.module';
+import { TowerEnemyModule } from './tower/module/tower-enemy.module';
 
 @Module({
   imports: [
     AuthModule,
     PlayerClassModule, PlayerClassModifiersModule,
     CombatModule, CombatHistoryModule, FatalCombatReplayModule,
+    InventoryModule, ItemModule,
+    LootModule,
+    PlayerModule,
+    TowerModule, TowerPlayerProgressModule, TowerEnemyModule
   ],
 })
 export class AppModule implements NestModule {

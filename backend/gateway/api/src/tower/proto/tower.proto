@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package Tower;
+
+option java_multiple_files = true;
+option java_package = "com.chocolatada.tower.grpc";
+option java_outer_classname = "TowerProto";
+
+message GetTowerFloorRequest {
+  int64 floor = 1;
+}
+
+message GetTowerFloorResponse {
+  Tower tower = 1;
+}
+
+message Tower {
+  int64 id = 1;
+  int64 floor = 2;
+  string level_range = 3;
+}
+
+message ListTowerFloorsRequest { }
+
+message ListTowerFloorsResponse {
+  repeated Tower floors = 1;
+}
+
+service TowerService {
+  rpc GetTowerFloor (GetTowerFloorRequest) returns (GetTowerFloorResponse);
+  rpc ListTowerFloors (ListTowerFloorsRequest) returns (ListTowerFloorsResponse);
+}
