@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package World;
+
+option java_multiple_files = true;
+option java_package = "com.chocolatada.world.grpc";
+option java_outer_classname = "NPCItemProto";
+
+message NPCItem {
+  int64 id = 1;
+  int64 item_id = 2;
+  int32 price = 3;
+}
+
+message ListNPCVendorItemsRequest {
+  int64 npc_id = 1;
+}
+
+message ListNPCVendorItemsResponse {
+  repeated NPCItem items = 1;
+}
+
+service NPCItemService {
+  rpc ListNPCVendorItems(ListNPCVendorItemsRequest) returns (ListNPCVendorItemsResponse);
+}
+

@@ -13,6 +13,10 @@ import { PlayerModule } from './player/module/player.module';
 import { TowerModule } from './tower/module/tower.module';
 import { TowerPlayerProgressModule } from './tower/module/tower-player-progress.module';
 import { TowerEnemyModule } from './tower/module/tower-enemy.module';
+import { EnemyModule } from './world/module/enemy.module';
+import { MapModule } from './world/module/map.module';
+import { NpcItemModule } from './world/module/npc-item.module';
+import { NpcModule } from './world/module/npc.module';
 
 @Module({
   imports: [
@@ -22,7 +26,8 @@ import { TowerEnemyModule } from './tower/module/tower-enemy.module';
     InventoryModule, ItemModule,
     LootModule,
     PlayerModule,
-    TowerModule, TowerPlayerProgressModule, TowerEnemyModule
+    TowerModule, TowerPlayerProgressModule, TowerEnemyModule,
+    EnemyModule, MapModule, NpcItemModule, NpcModule
   ],
 })
 export class AppModule implements NestModule {

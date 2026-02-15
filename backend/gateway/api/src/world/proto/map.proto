@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+package World;
+
+import "enemy.proto";
+
+option java_multiple_files = true;
+option java_package = "com.chocolatada.world.grpc";
+option java_outer_classname = "MapProto";
+
+message Map {
+  int64 id = 1;
+  string name = 2;
+  string description = 3;
+  string range_level = 4;
+}
+
+message MapEnemy {
+  int64 id = 1;
+  string name = 2;
+  string description = 3;
+  int32 gold = 4;
+}
+
+message GetMapByIdRequest {
+  int64 map_id = 1;
+}
+
+message GetMapResponse {
+  Map map = 1;
+}
+
+message ListMapsRequest { }
+
+message ListMapsResponse {
+  repeated Map maps = 1;
+}
+
+message ListMapEnemiesRequest {
+  int64 map_id = 1;
+}
+
+message ListMapEnemiesResponse {
+  repeated MapEnemy pool = 1;
+}
+
+message GetExpandedMapEnemyPoolRequest {
+  int64 map_id = 1;
+}
+
+message GetExpandedMapEnemyPoolResponse {
+  repeated Enemy enemies = 1;
+}
+
+service MapService {
+  rpc GetMapById(GetMapByIdRequest) returns (GetMapResponse);
+
+  rpc ListMaps(ListMapsRequest) returns (ListMapsResponse);
+
+  rpc ListMapEnemies(ListMapEnemiesRequest) returns (ListMapEnemiesResponse);
+
+  rpc GetExpandedMapEnemyPool(GetExpandedMapEnemyPoolRequest) returns (GetExpandedMapEnemyPoolResponse);
+}
+
