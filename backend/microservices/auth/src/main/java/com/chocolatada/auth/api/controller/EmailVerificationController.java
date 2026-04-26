@@ -1,5 +1,6 @@
 package com.chocolatada.auth.api.controller;
 
+import com.chocolatada.auth.exception.EmailFailedVerificationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,22 +20,16 @@ public class EmailVerificationController {
     private final IUserService userService;
 
     @GetMapping("/verify")
-    public ResponseEntity<VerificationResponse> verifyEmail(@RequestParam String token) {
-        try {
-            userService.markEmailAsVerified(token);
+    public ResponseEntity<VerificationResponse> verifyEmail(
+            @RequestParam String token
+    ) throws EmailFailedVerificationException {
+        userService.markEmailAsVerified(token);
 
-            VerificationResponse response = new VerificationResponse(
-                true,
-                "Correo electrónico verificado exitosamente. Tu cuenta está activada."
-            );
+        VerificationResponse response = new VerificationResponse(
+            true,
+            "Correo electrónico verificado exitosamente. Tu cuenta está activada."
+        );
 
-            return ResponseEntity.ok(response);
-        } catch (Exception e) {
-            VerificationResponse response = new VerificationResponse(
-                false,
-                e.getMessage()
-            );
-            return ResponseEntity.internalServerError().body(response);
-        }
+        return ResponseEntity.ok(response);
     }
 }

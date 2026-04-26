@@ -2,10 +2,7 @@ package com.chocolatada.auth.service.jpa;
 
 import com.chocolatada.auth.entity.UserEntity;
 import com.chocolatada.auth.entity.UserStatus;
-import com.chocolatada.auth.exception.InvalidCredentialsException;
-import com.chocolatada.auth.exception.InvalidUserDataException;
-import com.chocolatada.auth.exception.UserAlreadyExistsException;
-import com.chocolatada.auth.exception.UserNotActiveException;
+import com.chocolatada.auth.exception.*;
 
 public interface IUserService {
 
@@ -17,5 +14,5 @@ public interface IUserService {
 
     UserEntity updateUserStatus(Long userId, UserStatus newStatus);
 
-    void markEmailAsVerified(String token) throws Exception;
+    void markEmailAsVerified(String token) throws EmailFailedVerificationException;
 }

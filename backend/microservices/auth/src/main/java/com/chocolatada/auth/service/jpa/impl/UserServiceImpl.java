@@ -1,5 +1,6 @@
 package com.chocolatada.auth.service.jpa.impl;
 
+import com.chocolatada.auth.exception.*;
 import com.chocolatada.auth.repository.IUserRepository;
 import com.chocolatada.auth.security.JwtTokenProvider;
 import com.chocolatada.auth.security.VerificationTokenData;
@@ -8,10 +9,6 @@ import org.springframework.stereotype.Service;
 
 import com.chocolatada.auth.entity.UserEntity;
 import com.chocolatada.auth.entity.UserStatus;
-import com.chocolatada.auth.exception.InvalidCredentialsException;
-import com.chocolatada.auth.exception.InvalidUserDataException;
-import com.chocolatada.auth.exception.UserAlreadyExistsException;
-import com.chocolatada.auth.exception.UserNotActiveException;
 import com.chocolatada.auth.security.PasswordEncoderService;
 import com.chocolatada.auth.service.jpa.IUserService;
 import com.chocolatada.auth.validator.UserValidator;
@@ -98,7 +95,7 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public void markEmailAsVerified(String token) throws Exception {
+    public void markEmailAsVerified(String token) throws EmailFailedVerificationException {
         try {
             log.info("Intento de verificación de email con token: " + token);
 
@@ -113,7 +110,9 @@ public class UserServiceImpl implements IUserService {
             log.info("Usuario ID: "+ userId +" marcado como ACTIVE");
         } catch (Exception e) {
             log.error("Error durante la verificación de email con token: "+ token, e);
-            throw e;
+            throw new EmailFailedVerificationException(
+                    "Error al verificar el correo electrónico"
+            );
         }
     }
 }
