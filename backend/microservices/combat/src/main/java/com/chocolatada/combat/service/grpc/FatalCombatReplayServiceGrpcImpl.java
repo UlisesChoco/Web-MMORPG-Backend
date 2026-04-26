@@ -85,6 +85,11 @@ public class FatalCombatReplayServiceGrpcImpl extends FatalCombatReplayServiceGr
             log.info("Muertes recientes obtenidas exitosamente. Limite: " + limit);
             responseObserver.onNext(response);
             responseObserver.onCompleted();
+        } catch (FatalCombatReplayException fatalCombatReplayException) {
+            log.error("El límite debe ser un número positivo distinto a cero", fatalCombatReplayException);
+            responseObserver.onError(Status.INVALID_ARGUMENT
+                    .withDescription(fatalCombatReplayException.getMessage())
+                    .asRuntimeException());
         } catch (Exception e) {
             log.error("Error interno del servidor al obtener las muertes recientes", e);
             responseObserver.onError(Status.INTERNAL

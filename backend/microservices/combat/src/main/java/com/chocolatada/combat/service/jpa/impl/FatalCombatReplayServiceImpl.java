@@ -39,7 +39,10 @@ public class FatalCombatReplayServiceImpl implements IFatalCombatReplayService {
     }
 
     @Override
-    public List<FatalCombatReplayDTO> getRecentFatalities(int limit) {
+    public List<FatalCombatReplayDTO> getRecentFatalities(int limit) throws FatalCombatReplayException {
+        if (limit <= 0)
+            throw new FatalCombatReplayException("El límite debe ser un número positivo distinto a cero");
+
         List<FatalCombatReplayEntity> entities = fatalCombatReplayRepository.getRecentFatalities(limit);
 
         return FatalCombatReplayMapper.toFatalCombatReplayDTOList(entities);
