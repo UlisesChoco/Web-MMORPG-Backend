@@ -9,6 +9,7 @@ import com.chocolatada.auth.entity.UserEntity;
 
 @Repository
 public interface IUserRepository extends JpaRepository<UserEntity, Long> {
-    
     Optional<UserEntity> findByEmail(String email);
+
+    boolean existsByEmail(String email);
 }

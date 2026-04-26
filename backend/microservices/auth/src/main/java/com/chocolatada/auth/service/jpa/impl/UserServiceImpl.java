@@ -37,7 +37,7 @@ public class UserServiceImpl implements IUserService {
         userValidator.validateEmail(email);
         userValidator.validatePassword(password);
 
-        if (userRepository.findByEmail(email).isPresent()) {
+        if (userRepository.existsByEmail(email)) {
             throw new UserAlreadyExistsException(
                 "Ya existe un usuario registrado con el email: " + email
             );
