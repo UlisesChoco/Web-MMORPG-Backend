@@ -15,48 +15,48 @@ public class PlayerEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "user_id", nullable = false)
     private Long userId;
 
-    @Column(nullable = false)
+    @Column(name = "class_id", nullable = false)
     private Long classId;
 
-    @Column(nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(nullable = false)
+    @Column(name = "alive", nullable = false)
     private Boolean alive;
 
-    @Column(nullable = false)
+    @Column(name = "gold", nullable = false)
     private int gold;
 
-    @Column(nullable = false)
+    @Column(name = "level", nullable = false)
     private int level;
 
-    @Column(nullable = false)
+    @Column(name = "experience", nullable = false)
     private int experience;
 
-    @Column(nullable = false)
+    @Column(name = "experience_limit", nullable = false)
     private int experienceLimit;
 
-    @Column(nullable = false)
+    @Column(name = "free_stat_points", nullable = false)
     private int freeStatPoints;
 
-    @Column(nullable = false)
+    @Column(name = "hp_bonus", nullable = false)
     private int hpBonus;
 
-    @Column(nullable = false)
+    @Column(name = "atk_bonus", nullable = false)
     private int atkBonus;
 
-    @Column(nullable = false)
+    @Column(name = "def_bonus", nullable = false)
     private int defBonus;
 
-    @Column(nullable = false)
+    @Column(name = "stamina_bonus", nullable = false)
     private int staminaBonus;
 
-    @Column(nullable = false)
+    @Column(name = "accuracy_bonus", nullable = false)
     private int accuracyBonus;
 
-    @Column(nullable = false)
+    @Column(name = "evasion_bonus", nullable = false)
     private int evasionBonus;
 }

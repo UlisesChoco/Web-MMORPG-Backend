@@ -19,6 +19,6 @@ public class TowerEnemyEntity {
     @JoinColumn(name = "tower_id", nullable = false)
     private TowerEntity tower;
 
-    @Column(nullable = false)
+    @Column(name = "enemy_id", nullable = false)
     private Long enemyId;
 }

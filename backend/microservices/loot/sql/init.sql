@@ -1,0 +1,9 @@
+CREATE DATABASE IF NOT EXISTS `loot`;
+USE `loot`;
+
+CREATE TABLE IF NOT EXISTS `enemy_item_drop` (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    enemy_id BIGINT NOT NULL,
+    item_id BIGINT NOT NULL,
+    probability FLOAT NOT NULL,
+);

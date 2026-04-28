@@ -15,28 +15,27 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 public class EnemyEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(nullable = false)
+    @Column(name = "description", nullable = false)
     private String description;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @Column(name = "type", nullable = false)
     private EnemyType type;
 
-    @Column(nullable = false)
+    @Column(name = "level", nullable = false)
     private Integer level;
 
-    @Column(nullable = false)
+    @Column(name = "experience", nullable = false)
     private Integer experience;
 
-    @Column(nullable = false)
+    @Column(name = "gold", nullable = false)
     private Integer gold;
 
     @Column(name = "crit_rate", nullable = false)
@@ -45,30 +44,29 @@ public class EnemyEntity {
     @Column(name = "crit_damage", nullable = false)
     private Float critDamage;
 
-    @Column(nullable = false)
+    @Column(name = "hp", nullable = false)
     private Integer hp;
 
-    @Column(nullable = false)
+    @Column(name = "atk", nullable = false)
     private Integer atk;
 
     @Column(name = "def", nullable = false)
     private Integer def;
 
-    @Column(nullable = false)
+    @Column(name = "stamina", nullable = false)
     private Integer stamina;
 
-    @Column(nullable = false)
+    @Column(name = "accuracy", nullable = false)
     private Integer accuracy;
 
-    @Column(nullable = false)
+    @Column(name = "evasion", nullable = false)
     private Integer evasion;
 
     @ManyToMany
     @JoinTable(
-            name = "enemy_map",
+            name = "enemy_in_map",
             joinColumns = @JoinColumn(name = "enemy_id"),
             inverseJoinColumns = @JoinColumn(name = "map_id")
     )
     private List<MapEntity> maps;
 }
-

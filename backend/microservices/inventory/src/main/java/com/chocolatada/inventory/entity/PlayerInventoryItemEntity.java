@@ -24,6 +24,6 @@ public class PlayerInventoryItemEntity {
     @JoinColumn(name = "item_id", nullable = false)
     private ItemEntity item;
 
-    @Column(nullable = false)
+    @Column(name = "equipped", nullable = false)
     private Boolean equipped;
 }

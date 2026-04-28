@@ -24,33 +24,33 @@ public class PlayerClassEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true)
+    @Column(name = "name", nullable = false, unique = true)
     private String name;
 
-    @Column(nullable = false)
+    @Column(name = "description", nullable = false)
     private String description;
 
-    @Column(nullable = false)
+    @Column(name = "crit_rate", nullable = false)
     private float critRate;
 
-    @Column(nullable = false)
+    @Column(name = "crit_damage", nullable = false)
     private float critDamage;
 
-    @Column(nullable = false)
+    @Column(name = "hp", nullable = false)
     private int hp;
 
-    @Column(nullable = false)
+    @Column(name = "atk", nullable = false)
     private int atk;
 
-    @Column(nullable = false)
+    @Column(name = "def", nullable = false)
     private int def;
 
-    @Column(nullable = false)
+    @Column(name = "stamina", nullable = false)
     private int stamina;
 
-    @Column(nullable = false)
+    @Column(name = "accuracy", nullable = false)
     private int accuracy;
 
-    @Column(nullable = false)
+    @Column(name = "evasion", nullable = false)
     private int evasion;
 }

@@ -18,6 +18,6 @@ public class FatalCombatReplayEntity {
     @JoinColumn(name = "combat_history_id", nullable = false)
     private CombatHistoryEntity combatHistory;
 
-    @Column(nullable = false, columnDefinition = "LONGTEXT")
+    @Column(name = "turn_log", nullable = false)
     private String turnLog;
 }

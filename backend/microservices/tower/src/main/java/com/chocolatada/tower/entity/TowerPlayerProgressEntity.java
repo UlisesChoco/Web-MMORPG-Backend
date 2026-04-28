@@ -20,6 +20,6 @@ public class TowerPlayerProgressEntity {
     @JoinColumn(name = "tower_id", nullable = false)
     private TowerEntity tower;
 
-    @Column(nullable = false)
+    @Column(name = "player_id", nullable = false)
     private Long playerId;
 }

@@ -15,7 +15,9 @@ public class TowerEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "floor", nullable = false)
     private Integer floor;
 
+    @Column(name = "level_range", nullable = false)
     private String levelRange;
 }

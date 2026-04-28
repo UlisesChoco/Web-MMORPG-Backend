@@ -18,24 +18,24 @@ public class ItemEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(nullable = false)
+    @Column(name = "description", nullable = false)
     private String description;
 
-    @Column(nullable = false)
+    @Column(name = "gold", nullable = false)
     private Integer gold;
 
     @Column(name = "required_level", nullable = false)
     private Integer requiredLevel;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @Column(name = "type", nullable = false)
     private ItemType type;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @Column(name = "slot", nullable = false)
     private ItemSlot slot;
 
     @Column(name = "hp_bonus", nullable = false)

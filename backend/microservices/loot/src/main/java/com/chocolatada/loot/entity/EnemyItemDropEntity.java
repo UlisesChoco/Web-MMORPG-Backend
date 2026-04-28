@@ -15,12 +15,12 @@ public class EnemyItemDropEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "enemy_id", nullable = false)
     private Long enemyId;
 
-    @Column(nullable = false)
+    @Column(name = "item_id", nullable = false)
     private Long itemId;
 
-    @Column(nullable = false)
+    @Column(name = "probability", nullable = false)
     private Float probability;
 }

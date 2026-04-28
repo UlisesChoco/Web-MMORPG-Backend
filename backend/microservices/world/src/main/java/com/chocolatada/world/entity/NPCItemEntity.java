@@ -24,6 +24,6 @@ public class NPCItemEntity {
     @Column(name = "item_id", nullable = false)
     private Long itemId;
 
-    @Column(nullable = false)
+    @Column(name = "price", nullable = false)
     private Integer price;
 }

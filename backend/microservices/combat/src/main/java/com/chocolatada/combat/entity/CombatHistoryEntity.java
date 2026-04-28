@@ -16,18 +16,18 @@ public class CombatHistoryEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "player_id", nullable = false)
     private Long playerId;
 
-    @Column(nullable = false)
+    @Column(name = "enemy_id", nullable = false)
     private Long enemyId;
 
-    @Column(nullable = false)
+    @Column(name = "total_turns", nullable = false)
     private Integer totalTurns;
 
-    @Column(nullable = false)
+    @Column(name = "was_fatal", nullable = false)
     private Boolean wasFatal;
 
-    @Column(nullable = false)
+    @Column(name = "date", nullable = false)
     private LocalDate date;
 }
