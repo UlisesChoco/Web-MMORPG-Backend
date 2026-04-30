@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS `enemy` (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     description TEXT NOT NULL,
-    type ENUM('normal', 'elite', 'miniboss', 'boss', 'legendary') NOT NULL,
+    type ENUM('NORMAL', 'ELITE', 'MINIBOSS', 'BOSS', 'LEGENDARY') NOT NULL,
     level INT NOT NULL,
     experience INT NOT NULL,
     gold INT NOT NULL,
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `npc` (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     description TEXT NOT NULL,
-    type ENUM('merchant', 'quest_giver', 'trainer', 'banker', 'blacksmith') NOT NULL
+    type ENUM('MERCHANT', 'QUEST_GIVER', 'TRAINER', 'BANKER', 'BLACKSMITH') NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS `npc_item` (

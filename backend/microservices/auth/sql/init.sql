@@ -5,6 +5,6 @@ CREATE TABLE IF NOT EXISTS `users` (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
-    status ENUM('pending', 'active', 'banned') NOT NULL DEFAULT 'pending',
+    status ENUM('PENDING', 'ACTIVE', 'BANNED') NOT NULL DEFAULT 'PENDING',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
