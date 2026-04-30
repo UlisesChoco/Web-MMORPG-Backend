@@ -9,14 +9,14 @@ CREATE TABLE IF NOT EXISTS `enemy` (
     level INT NOT NULL,
     experience INT NOT NULL,
     gold INT NOT NULL,
-    crit_rate DECIMAL(10,2) NOT NULL,
-    crit_damage DECIMAL(10,2) NOT NULL,
+    crit_rate FLOAT NOT NULL,
+    crit_damage FLOAT NOT NULL,
     hp INT NOT NULL,
     atk INT NOT NULL,
     def INT NOT NULL,
     stamina INT NOT NULL,
     accuracy INT NOT NULL,
-    evasion INT NOT NULL,
+    evasion INT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS `map` (

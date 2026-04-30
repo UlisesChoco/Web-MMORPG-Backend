@@ -97,6 +97,7 @@
 	</dependencyManagement>
 
 	<build>
+		<finalName>auth</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -122,6 +123,7 @@
 							<artifactId>protoc-gen-grpc-java</artifactId>
 							<version>${grpc.version}</version>
 							<options>@generated=omit</options>
+							<classifier>linux-x86_64</classifier>
 						</binaryMavenPlugin>
 					</binaryMavenPlugins>
 				</configuration>

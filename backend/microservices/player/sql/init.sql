@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS `player_class` (
     user_id BIGINT NOT NULL,
     class_id BIGINT NOT NULL,
     name VARCHAR(255) NOT NULL,
-    alive TINYINT NOT NULL DEFAULT 1,
+    alive BOOLEAN NOT NULL DEFAULT 1,
     gold INT NOT NULL,
     level INT NOT NULL,
     experience INT NOT NULL,

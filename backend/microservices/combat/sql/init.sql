@@ -6,8 +6,8 @@ CREATE TABLE IF NOT EXISTS `combat_history` (
     player_id BIGINT NOT NULL,
     enemy_id BIGINT NOT NULL,
     total_turns INT NOT NULL,
-    was_fatal TINYINT NOT NULL,
-    date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    was_fatal BOOLEAN NOT NULL,
+    date DATE DEFAULT (CURRENT_DATE)
 );
 
 CREATE TABLE IF NOT EXISTS `fatal_combat_replay` (

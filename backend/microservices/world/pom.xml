@@ -80,6 +80,7 @@
 	</dependencyManagement>
 
 	<build>
+		<finalName>world</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

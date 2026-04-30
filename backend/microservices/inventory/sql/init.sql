@@ -15,14 +15,14 @@ CREATE TABLE IF NOT EXISTS `item` (
     stamina_bonus INT NOT NULL,
     accuracy_bonus INT NOT NULL,
     evasion_bonus INT NOT NULL,
-    crit_rate_bonus DECIMAL(10,2) NOT NULL,
-    crit_damage_bonus DECIMAL(10,2) NOT NULL
+    crit_rate_bonus FLOAT NOT NULL,
+    crit_damage_bonus FLOAT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS `player_inventory_item`(
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     player_id BIGINT NOT NULL,
     item_id BIGINT NOT NULL,
-    equipped TINYINT NOT NULL,
-    FOREIGN KEY (item_id) REFERENCES item(id),
+    equipped BOOLEAN NOT NULL,
+    FOREIGN KEY (item_id) REFERENCES item(id)
 );

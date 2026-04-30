@@ -80,6 +80,7 @@
 	</dependencyManagement>
 
 	<build>
+		<finalName>loot</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
