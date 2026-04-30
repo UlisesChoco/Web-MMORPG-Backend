@@ -11,17 +11,15 @@ import org.springframework.grpc.client.GrpcChannelFactory;
 public class GrpcClientConfiguration {
     private final GrpcChannelFactory channelFactory;
 
-    //por ahora lo dejo asi para testear,
-    //pero deberia dockerizar y cambiar a direcciones docker
-    private final String ENEMY_SERVICE_ADDRESS = "localhost:9097";
+    private final String ENEMY_SERVICE_ADDRESS = "world:9097";
 
-    private final String PLAYER_SERVICE_ADDRESS = "localhost:9095";
+    private final String PLAYER_SERVICE_ADDRESS = "player:9095";
 
-    private final String PLAYER_CLASS_SERVICE_ADDRESS = "localhost:9091";
+    private final String PLAYER_CLASS_SERVICE_ADDRESS = "class:9091";
 
-    private final String LOOT_SERVICE_ADDRESS = "localhost:9094";
+    private final String LOOT_SERVICE_ADDRESS = "loot:9094";
 
-    private final String INVENTORY_SERVICE_ADDRESS = "localhost:9093";
+    private final String INVENTORY_SERVICE_ADDRESS = "inventory:9093";
 
     @Bean
     EnemyServiceGrpc.EnemyServiceBlockingStub enemyStub() {
