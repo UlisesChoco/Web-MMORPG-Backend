@@ -10,7 +10,7 @@ import { PlayerController } from "../controller/player.controller";
                 name: 'PLAYER_PACKAGE',
                 transport: Transport.GRPC,
                 options: {
-                    url: 'localhost:9095',
+                    url: 'player:9095',
                     package: 'Player',
                     protoPath: 'src/player/proto/player.proto'
                 }

@@ -9,7 +9,7 @@ import { TowerEnemyController } from "../controller/tower-enemy.controller";
                 name: 'TOWER_ENEMY_PACKAGE',
                 transport: Transport.GRPC,
                 options: {
-                    url: 'localhost:9096',
+                    url: 'tower:9096',
                     package: 'Tower',
                     protoPath: 'src/tower/proto/tower_enemy.proto'
                 }

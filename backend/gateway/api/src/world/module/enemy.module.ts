@@ -9,7 +9,7 @@ import { Module } from "@nestjs/common";
                 name: 'ENEMY_PACKAGE',
                 transport: Transport.GRPC,
                 options: {
-                    url: 'localhost:9097',
+                    url: 'world:9097',
                     package: 'World',
                     protoPath: 'src/world/proto/enemy.proto'
                 }

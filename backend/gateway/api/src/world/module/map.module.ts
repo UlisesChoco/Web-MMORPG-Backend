@@ -9,7 +9,7 @@ import { MapController } from "../controller/map.controller";
                 name: 'MAP_PACKAGE',
                 transport: Transport.GRPC,
                 options: {
-                    url: 'localhost:9097',
+                    url: 'world:9097',
                     package: 'World',
                     protoPath: 'src/world/proto/map.proto'
                 }

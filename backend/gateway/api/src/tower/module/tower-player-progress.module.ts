@@ -9,7 +9,7 @@ import { TowerPlayerProgressController } from "../controller/tower-player-progre
                 name: 'TOWER_PLAYER_PROGRESS_PACKAGE',
                 transport: Transport.GRPC,
                 options: {
-                    url: 'localhost:9096',
+                    url: 'tower:9096',
                     package: 'Tower',
                     protoPath: 'src/tower/proto/tower_player_progress.proto'
                 }

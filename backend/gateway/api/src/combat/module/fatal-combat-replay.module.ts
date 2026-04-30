@@ -9,7 +9,7 @@ import { FatalCombatReplayController } from "../controller/fatal-combat-replay.c
                 name: 'FATAL_COMBAT_REPLAY_PACKAGE',
                 transport: Transport.GRPC,
                 options: {
-                    url: 'localhost:9092',
+                    url: 'combat:9092',
                     package: 'Combat',
                     protoPath: 'src/combat/proto/fatal_combat_replay.proto'
                 }

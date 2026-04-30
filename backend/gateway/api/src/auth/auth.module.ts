@@ -9,7 +9,7 @@ import { ClientsModule, Transport } from "@nestjs/microservices";
                 name: 'AUTH_PACKAGE',
                 transport: Transport.GRPC,
                 options: {
-                    url: 'localhost:9090', //i have to change this later bc of docker, but it's ok for now
+                    url: 'auth:9090', //i have to change this later bc of docker, but it's ok for now
                     package: 'Auth',
                     protoPath: './src/auth/proto/user.proto',
                 }

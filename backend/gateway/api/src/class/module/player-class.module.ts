@@ -9,7 +9,7 @@ import { ClientsModule, Transport } from "@nestjs/microservices";
                 name: 'PLAYER_CLASS_PACKAGE',
                 transport: Transport.GRPC,
                 options: {
-                    url: 'localhost:9091',
+                    url: 'class:9091',
                     package: 'Class',
                     protoPath: 'src/class/proto/player_class.proto'
                 }

@@ -9,7 +9,7 @@ import { ClientsModule, Transport } from "@nestjs/microservices";
                 name: 'COMBAT_PACKAGE',
                 transport: Transport.GRPC,
                 options: {
-                    url: 'localhost:9092',
+                    url: 'combat:9092',
                     package: 'Combat',
                     protoPath: 'src/combat/proto/combat.proto'
                 }

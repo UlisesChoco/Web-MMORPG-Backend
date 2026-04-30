@@ -9,7 +9,7 @@ import { ClientsModule, Transport } from "@nestjs/microservices";
                 name: 'TOWER_PACKAGE',
                 transport: Transport.GRPC,
                 options: {
-                    url: 'localhost:9096',
+                    url: 'tower:9096',
                     package: 'Tower',
                     protoPath: 'src/tower/proto/tower.proto'
                 }

@@ -9,7 +9,7 @@ import { NpcController } from "../controller/npc.controller";
                 name: 'NPC_PACKAGE',
                 transport: Transport.GRPC,
                 options: {
-                    url: 'localhost:9097',
+                    url: 'world:9097',
                     package: 'World',
                     protoPath: 'src/world/proto/npc.proto'
                 }

@@ -9,7 +9,7 @@ import { ItemController } from "../controller/item.controller";
                 name: 'ITEM_PACKAGE',
                 transport: Transport.GRPC,
                 options: {
-                    url: 'localhost:9093',
+                    url: 'inventory:9093',
                     package: 'Inventory',
                     protoPath: 'src/inventory/proto/item.proto'
                 }

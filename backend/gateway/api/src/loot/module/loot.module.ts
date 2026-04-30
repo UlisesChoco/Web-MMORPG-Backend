@@ -10,7 +10,7 @@ import { LootController } from "../controller/loot.controller";
                 name: 'LOOT_PACKAGE',
                 transport: Transport.GRPC,
                 options: {
-                    url: 'localhost:9094',
+                    url: 'loot:9094',
                     package: 'Loot',
                     protoPath: 'src/loot/proto/loot.proto'
                 }
