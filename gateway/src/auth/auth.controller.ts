@@ -44,8 +44,9 @@ export class AuthController implements OnModuleInit {
 
             response.cookie('auth_jwt', data.jwt, {
                 httpOnly: true,
-                secure: process.env.NODE_ENV === 'production',
-                sameSite: 'lax',
+                //secure: process.env.NODE_ENV === 'production',
+		secure: true,
+                sameSite: 'none',
                 maxAge: expiresAt.getTime() - Date.now()
             });
 
