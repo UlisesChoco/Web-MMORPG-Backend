@@ -1,7 +1,7 @@
-import { Body, Controller, Get, Inject, Logger, OnModuleInit, Param, Post, Res } from "@nestjs/common";
+import { Body, Controller, Get, Inject, Logger, OnModuleInit, Param, Post, Req, Res } from "@nestjs/common";
 import type { ClientGrpc } from "@nestjs/microservices";
 import { PlayerService } from "../service/player.service";
-import type { Response } from "express";
+import type { Request, Response } from "express";
 import { Http } from "src/common/http/http.handle.response";
 import { firstValueFrom } from "rxjs";
 import { PlayerMapper } from "../mapper/player.mapper";
@@ -45,14 +45,14 @@ export class PlayerController implements OnModuleInit {
         }
     }
 
-    @Get('user/:userId')
+    @Get('user')
     async getPlayerByUserId(
-        @Param() params: any,
+        @Req() req: any,
         @Res({ passthrough: true }) response: Response
     ) {
         try {
             const request = {
-                userId: params.userId
+                userId: req.user.userId
             };
 
             const observable = this.playerService.GetPlayerByUserId(request);
@@ -61,11 +61,11 @@ export class PlayerController implements OnModuleInit {
 
             const finalData = PlayerMapper.toPlayerResponseDTO(data);
 
-            this.logger.log(`Jugador con userId ${params.userId} obtenido exitosamente`);
+            this.logger.log(`Jugador con userId ${req.user.userId} obtenido exitosamente`);
 
             return finalData;
         } catch (err) {
-            this.logger.error(`Error al obtener el jugador con userId ${params.userId}: ${err.message}`);
+            this.logger.error(`Error al obtener el jugador con userId ${req.user.userId}: ${err.message}`);
 
             return Http.handleHttpErrorResponse(err, response);
         }

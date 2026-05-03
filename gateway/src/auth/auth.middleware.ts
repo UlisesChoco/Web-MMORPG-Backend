@@ -14,8 +14,6 @@ export class AuthMiddleware implements NestMiddleware {
 
             req.user = decodedToken;
 
-            req.headers["authorization"] = `Bearer ${token}`;
-
             next();
         } catch (err) {
             if(err instanceof jwt.JsonWebTokenError)
