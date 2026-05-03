@@ -305,11 +305,11 @@ Estados
 - `500`: error no tipado o no mapeado en el gateway.
 - `503`: el microservicio de jugador está caído, no responde o devuelve `INTERNAL`.
 
-#### GET /player/user/:userId
+#### GET /player/user
 
 Request
 
-- Path param `userId`
+- Sin body ni query params
 
 Response
 
@@ -339,7 +339,7 @@ Response
 Estados
 
 - `200`: existe un jugador asociado al usuario y se devuelve su detalle.
-- `400`: el `userId` no es válido.
+- `400`: el `userId` de la cookie incluida no es válido.
 - `404`: no existe un jugador para ese usuario.
 - `500`: error no tipado o no mapeado en el gateway.
 - `503`: el microservicio de jugador está caído, no responde o devuelve `INTERNAL`.
