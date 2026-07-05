@@ -1,3 +1,6 @@
+import { IsInt } from 'class-validator';
+
 export class DeletePlayerRequestDTO {
-    playerId: Long;
+  @IsInt()
+  playerId: number;
 }

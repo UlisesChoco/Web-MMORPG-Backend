@@ -1,10 +1,10 @@
 export interface GetCombatHistoryByPlayerDTO {
-    combats: Array<CombatHistory>;
+  combats: Array<CombatHistory>;
 }
 
 export interface CombatHistory {
-    enemyId: number;
-    wasFatal: boolean;
-    date: string;
-    totalTurns: number;
+  enemyId: number;
+  wasFatal: boolean;
+  date: string;
+  totalTurns: number;
 }

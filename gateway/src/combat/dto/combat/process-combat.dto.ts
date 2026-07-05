@@ -1,4 +1,9 @@
+import { IsInt } from 'class-validator';
+
 export class ProcessCombatDTO {
-    playerId: number;
-    enemyId: number;
+  @IsInt()
+  playerId: number;
+
+  @IsInt()
+  enemyId: number;
 }

@@ -1,4 +1,9 @@
+import { IsInt } from 'class-validator';
+
 export class RegisterPlayerTowerProgressRequestDTO {
-  towerId: Long;
-  playerId: Long;
+  @IsInt()
+  towerId: number;
+
+  @IsInt()
+  playerId: number;
 }

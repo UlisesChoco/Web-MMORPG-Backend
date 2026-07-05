@@ -1,8 +1,8 @@
 export class GetPlayerTowerProgressResponseDTO {
-    progress: TowerPlayerProgressDTO;
+  progress: TowerPlayerProgressDTO;
 }
 
 export class TowerPlayerProgressDTO {
-    floor: number;
-    levelRange: string;
+  floor: number;
+  levelRange: string;
 }

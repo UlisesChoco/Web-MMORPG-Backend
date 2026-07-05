@@ -1,6 +1,6 @@
-import { ItemDTO } from "../util/item.dto";
+import { ItemDTO } from '../util/item.dto';
 
 export interface GetPlayerInventoryResponseDTO {
-    message: string;
-    items: Array<ItemDTO>;
+  message: string;
+  items: Array<ItemDTO>;
 }
