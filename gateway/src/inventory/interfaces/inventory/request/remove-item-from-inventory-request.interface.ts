@@ -1,3 +1,3 @@
 export interface RemoveItemFromInventoryRequest {
-    inventoryItemId: Long;
+  inventoryItemId: Long;
 }

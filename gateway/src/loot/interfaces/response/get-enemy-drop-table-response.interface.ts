@@ -1,8 +1,8 @@
 export interface GetEnemyDropTableResponse {
-    dropTable: Array<LootItem>;
+  dropTable: Array<LootItem>;
 }
 
 export interface LootItem {
-    itemId: number;
-    dropChance: number;
+  itemId: number;
+  dropChance: number;
 }

@@ -1,3 +1,3 @@
 export interface RegisterUserResponse {
-    message: string;
+  message: string;
 }

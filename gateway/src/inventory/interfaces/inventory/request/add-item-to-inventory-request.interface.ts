@@ -1,4 +1,4 @@
 export interface AddItemToInventoryRequest {
-    playerId: Long;
-    itemId: Long;
+  playerId: Long;
+  itemId: Long;
 }

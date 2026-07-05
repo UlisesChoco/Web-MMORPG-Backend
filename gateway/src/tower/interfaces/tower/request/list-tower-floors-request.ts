@@ -1,1 +1,1 @@
-export interface ListTowerFloorsRequest { }
+export interface ListTowerFloorsRequest {}

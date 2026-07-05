@@ -1,4 +1,4 @@
 export interface GetItemsByRequiredLevelRequest {
-    requiredLevel: Long;
-    onlyHigherThan: boolean;
+  requiredLevel: Long;
+  onlyHigherThan: boolean;
 }

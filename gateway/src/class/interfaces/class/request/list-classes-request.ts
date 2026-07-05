@@ -1,3 +1,1 @@
-export interface ListClassesRequest {
-    
-}
+export interface ListClassesRequest {}

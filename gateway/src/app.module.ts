@@ -1,4 +1,9 @@
-import { MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/common';
+import {
+  MiddlewareConsumer,
+  Module,
+  NestModule,
+  RequestMethod,
+} from '@nestjs/common';
 import { AuthModule } from './auth/auth.module';
 import { AuthMiddleware } from './auth/auth.middleware';
 import { PlayerClassModule } from './class/module/player-class.module';
@@ -21,13 +26,22 @@ import { NpcModule } from './world/module/npc.module';
 @Module({
   imports: [
     AuthModule,
-    PlayerClassModule, PlayerClassModifiersModule,
-    CombatModule, CombatHistoryModule, FatalCombatReplayModule,
-    InventoryModule, ItemModule,
+    PlayerClassModule,
+    PlayerClassModifiersModule,
+    CombatModule,
+    CombatHistoryModule,
+    FatalCombatReplayModule,
+    InventoryModule,
+    ItemModule,
     LootModule,
     PlayerModule,
-    TowerModule, TowerPlayerProgressModule, TowerEnemyModule,
-    EnemyModule, MapModule, NpcItemModule, NpcModule
+    TowerModule,
+    TowerPlayerProgressModule,
+    TowerEnemyModule,
+    EnemyModule,
+    MapModule,
+    NpcItemModule,
+    NpcModule,
   ],
 })
 export class AppModule implements NestModule {

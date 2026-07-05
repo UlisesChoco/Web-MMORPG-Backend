@@ -1,3 +1,3 @@
 export interface UnequipItemRequest {
-    inventoryItemId: Long;
+  inventoryItemId: Long;
 }

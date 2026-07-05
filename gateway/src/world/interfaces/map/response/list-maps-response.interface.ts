@@ -1,4 +1,4 @@
-import { Map } from "./get-map-response.interface";
+import { Map } from './get-map-response.interface';
 
 export interface ListMapsResponse {
   maps: Array<Map>;

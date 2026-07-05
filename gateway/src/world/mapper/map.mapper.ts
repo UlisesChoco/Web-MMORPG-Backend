@@ -1,110 +1,112 @@
-import { Util } from "src/common/util/number.functions";
-import { GetMapResponseDTO, MapDTO } from "../dto/map/get-map-response.dto";
-import { GetMapResponse } from "../interfaces/map/response/get-map-response.interface";
-import { ListMapsResponse } from "../interfaces/map/response/list-maps-response.interface";
-import { ListMapsResponseDTO } from "../dto/map/list-maps-response.dto";
-import { ListMapEnemiesResponseDTO } from "../dto/map/list-map-enemies-response.dto";
-import { ListMapEnemiesResponse } from "../interfaces/map/response/list-map-enemies-response.interface";
-import { EnemyType } from "../interfaces/enemy/response/get-enemy-by-id-response.interface";
-import { GetExpandedMapEnemyPoolResponseDTO } from "../dto/map/get-expanded-map-enemy-pool-response.dto";
-import { GetExpandedMapEnemyPoolResponse } from "../interfaces/map/response/get-expanded-map-enemy-pool-response.interface";
+import { Util } from 'src/common/util/number.functions';
+import { GetMapResponseDTO, MapDTO } from '../dto/map/get-map-response.dto';
+import { GetMapResponse } from '../interfaces/map/response/get-map-response.interface';
+import { ListMapsResponse } from '../interfaces/map/response/list-maps-response.interface';
+import { ListMapsResponseDTO } from '../dto/map/list-maps-response.dto';
+import { ListMapEnemiesResponseDTO } from '../dto/map/list-map-enemies-response.dto';
+import { ListMapEnemiesResponse } from '../interfaces/map/response/list-map-enemies-response.interface';
+import { EnemyType } from '../interfaces/enemy/response/get-enemy-by-id-response.interface';
+import { GetExpandedMapEnemyPoolResponseDTO } from '../dto/map/get-expanded-map-enemy-pool-response.dto';
+import { GetExpandedMapEnemyPoolResponse } from '../interfaces/map/response/get-expanded-map-enemy-pool-response.interface';
 
 export class MapMapper {
-    static toGetMapResponseDTO(data: any): GetMapResponseDTO {
-        const response = data as GetMapResponse;
+  static toGetMapResponseDTO(data: any): GetMapResponseDTO {
+    const response = data as GetMapResponse;
 
-        const map = {
-            id: Util.longToNumber(response.map.id),
-            name: response.map.name,
-            description: response.map.description,
-            rangeLevel: response.map.rangeLevel
-        };
+    const map = {
+      id: Util.longToNumber(response.map.id),
+      name: response.map.name,
+      description: response.map.description,
+      rangeLevel: response.map.rangeLevel,
+    };
 
-        const mapped = {
-            map: map
-        };
+    const mapped = {
+      map: map,
+    };
 
-        return mapped;
+    return mapped;
+  }
+
+  static toListMapsResponseDTO(data: any): ListMapsResponseDTO {
+    const response = data as ListMapsResponse;
+
+    if (!response.maps || response.maps.length === 0) {
+      return {
+        maps: [],
+      };
     }
 
-    static toListMapsResponseDTO(data: any): ListMapsResponseDTO {
-        const response = data as ListMapsResponse;
+    const maps = response.maps.map((map) => {
+      return this.toGetMapResponseDTO({ map: map });
+    });
 
-        if(!response.maps || response.maps.length === 0) {
-            return {
-                maps: []
-            };
-        }
+    const mapped = {
+      maps: maps,
+    };
 
-        const maps = response.maps.map(map => {
-            return this.toGetMapResponseDTO({ map: map });
-        });
+    return mapped;
+  }
 
-        const mapped = {
-            maps: maps
-        }
+  static toListMapEnemiesResponseDTO(data: any): ListMapEnemiesResponseDTO {
+    const response = data as ListMapEnemiesResponse;
 
-        return mapped;
+    if (!response.pool || response.pool.length === 0) {
+      return {
+        pool: [],
+      };
     }
 
-    static toListMapEnemiesResponseDTO(data: any): ListMapEnemiesResponseDTO {
-        const response = data as ListMapEnemiesResponse;
+    const pool = response.pool.map((enemy) => {
+      return {
+        id: Util.longToNumber(enemy.id),
+        name: enemy.name,
+        description: enemy.description,
+        gold: enemy.gold,
+      };
+    });
 
-        if(!response.pool || response.pool.length === 0) {
-            return {
-                pool: []
-            };
-        }
+    const mapped = {
+      pool: pool,
+    };
 
-        const pool = response.pool.map(enemy => {
-            return {
-                id: Util.longToNumber(enemy.id),
-                name: enemy.name,
-                description: enemy.description,
-                gold: enemy.gold
-            }
-        });
+    return mapped;
+  }
 
-        const mapped = {
-            pool: pool
-        };
+  static toGetExpandedMapEnemyPoolResponseDTO(
+    data: any,
+  ): GetExpandedMapEnemyPoolResponseDTO {
+    const response = data as GetExpandedMapEnemyPoolResponse;
 
-        return mapped;
+    if (!response.enemies || response.enemies.length === 0) {
+      return {
+        enemies: [],
+      };
     }
 
-    static toGetExpandedMapEnemyPoolResponseDTO(data: any): GetExpandedMapEnemyPoolResponseDTO {
-        const response = data as GetExpandedMapEnemyPoolResponse;
+    const enemies = response.enemies.map((enemy) => {
+      return {
+        id: Util.longToNumber(enemy.id),
+        name: enemy.name,
+        description: enemy.description,
+        type: EnemyType[enemy.type],
+        level: enemy.level,
+        experience: enemy.experience,
+        gold: enemy.gold,
+        critRate: enemy.critRate,
+        critDamage: enemy.critDamage,
+        hp: enemy.hp,
+        atk: enemy.atk,
+        def: enemy.def,
+        stamina: enemy.stamina,
+        accuracy: enemy.accuracy,
+        evasion: enemy.evasion,
+      };
+    });
 
-        if(!response.enemies || response.enemies.length === 0) {
-            return {
-                enemies: []
-            };
-        }
+    const mapped = {
+      enemies: enemies,
+    };
 
-        const enemies = response.enemies.map(enemy => {
-            return {
-                id: Util.longToNumber(enemy.id),
-                name: enemy.name,
-                description: enemy.description,
-                type: EnemyType[enemy.type],
-                level: enemy.level,
-                experience: enemy.experience,
-                gold: enemy.gold,
-                critRate: enemy.critRate,
-                critDamage: enemy.critDamage,
-                hp: enemy.hp,
-                atk: enemy.atk,
-                def: enemy.def,
-                stamina: enemy.stamina,
-                accuracy: enemy.accuracy,
-                evasion: enemy.evasion
-            }
-        });
-
-        const mapped = {
-            enemies: enemies
-        };
-
-        return mapped;
-    }
+    return mapped;
+  }
 }

@@ -1,3 +1,3 @@
 export interface GetPlayerWinCountRequest {
-    playerId: number;
+  playerId: number;
 }

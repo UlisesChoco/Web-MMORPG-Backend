@@ -1,21 +1,30 @@
-import { Module } from "@nestjs/common";
-import { CombatController } from "../controller/combat.controller";
-import { ClientsModule, Transport } from "@nestjs/microservices";
+import { Module } from '@nestjs/common';
+import { CombatController } from '../controller/combat.controller';
+import { ClientsModule, Transport } from '@nestjs/microservices';
 
 @Module({
-    imports: [
-        ClientsModule.register([
-            {
-                name: 'COMBAT_PACKAGE',
-                transport: Transport.GRPC,
-                options: {
-                    url: 'combat:9092',
-                    package: 'Combat',
-                    protoPath: 'src/combat/proto/combat.proto'
-                }
-            }
-        ])
-    ],
-    controllers: [CombatController]
+  imports: [
+    ClientsModule.register([
+      {
+        name: 'COMBAT_PACKAGE',
+        transport: Transport.GRPC,
+        options: {
+          url: 'combat:9092',
+          package: 'Combat',
+          protoPath: 'src/combat/proto/combat.proto',
+        },
+      },
+      {
+        name: 'PLAYER_PACKAGE',
+        transport: Transport.GRPC,
+        options: {
+          url: 'player:9095',
+          package: 'Player',
+          protoPath: 'src/player/proto/player.proto',
+        },
+      },
+    ]),
+  ],
+  controllers: [CombatController],
 })
 export class CombatModule {}

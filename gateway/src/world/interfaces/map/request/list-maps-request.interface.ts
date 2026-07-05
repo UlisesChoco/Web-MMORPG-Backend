@@ -1,3 +1,1 @@
-export interface ListMapsRequest {
-    
-}
+export interface ListMapsRequest {}
