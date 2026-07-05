@@ -19,7 +19,7 @@ public class TowerPlayerProgressImpl implements ITowerPlayerProgressService {
     @Override
     public TowerDTO getMaxFloorReached(Long playerId) throws InvalidTowerDataException {
         TowerPlayerProgressEntity entity = towerPlayerProgressRepository
-                .findById(playerId).orElseThrow(() ->
+                .findByPlayerId(playerId).orElseThrow(() ->
                         new InvalidTowerDataException("No existe progreso para el jugador con ID: " + playerId)
                 );
 
@@ -54,7 +54,7 @@ public class TowerPlayerProgressImpl implements ITowerPlayerProgressService {
 
     @Override
     public TowerPlayerProgressEntity getPlayerProgressEntity(Long playerId) throws InvalidTowerDataException {
-        return towerPlayerProgressRepository.findById(playerId).orElseThrow(() ->
+        return towerPlayerProgressRepository.findByPlayerId(playerId).orElseThrow(() ->
                 new InvalidTowerDataException("No existe progreso para el jugador con ID: " + playerId)
         );
     }
