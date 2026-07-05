@@ -1,4 +1,4 @@
 export interface LoginUserResponse {
-    message: string;
-    jwt: string;
+  message: string;
+  jwt: string;
 }

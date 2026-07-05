@@ -1,4 +1,4 @@
 export interface ProcessCombatRequest {
-    playerId: number;
-    enemyId: number;
+  playerId: number;
+  enemyId: number;
 }

@@ -1,4 +1,4 @@
 export interface AddItemToInventoryResponse {
-    message: string;
-    inventoryItemId: Long;
+  message: string;
+  inventoryItemId: Long;
 }

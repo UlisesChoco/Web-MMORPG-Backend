@@ -1,3 +1,3 @@
 export interface GetEquippedItemsRequest {
-    playerId: Long;
+  playerId: Long;
 }

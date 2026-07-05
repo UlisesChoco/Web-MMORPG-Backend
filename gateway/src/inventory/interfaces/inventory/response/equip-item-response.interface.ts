@@ -1,3 +1,3 @@
 export interface EquipItemResponse {
-    message: string;
+  message: string;
 }

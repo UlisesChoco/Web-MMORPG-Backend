@@ -1,3 +1,3 @@
 export interface RemoveItemFromInventoryResponse {
-    message: string;
+  message: string;
 }

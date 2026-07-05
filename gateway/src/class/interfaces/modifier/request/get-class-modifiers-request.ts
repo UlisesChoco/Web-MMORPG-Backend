@@ -1,3 +1,3 @@
 export interface GetClassModifiersRequest {
-    classId: number;
+  classId: number;
 }

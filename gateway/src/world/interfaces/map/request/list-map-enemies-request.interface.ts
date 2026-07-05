@@ -1,3 +1,3 @@
 export interface ListMapEnemiesRequest {
-    mapId: Long;
+  mapId: Long;
 }

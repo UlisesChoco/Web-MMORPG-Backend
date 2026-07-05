@@ -1,9 +1,9 @@
 export interface GetRecentFatalitiesDTO {
-    fatalities: Array<FatalityEntryDTO>;
+  fatalities: Array<FatalityEntryDTO>;
 }
 
 export interface FatalityEntryDTO {
-    playerId: number;
-    enemyId: number;
-    date: string;
+  playerId: number;
+  enemyId: number;
+  date: string;
 }

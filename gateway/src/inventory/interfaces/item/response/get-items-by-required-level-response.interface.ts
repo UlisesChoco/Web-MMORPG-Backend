@@ -1,6 +1,6 @@
-import { Item } from "../../util/item.interface";
+import { Item } from '../../util/item.interface';
 
 export interface GetItemsByRequiredLevelResponse {
-    message: string;
-    items: Array<Item>;
+  message: string;
+  items: Array<Item>;
 }

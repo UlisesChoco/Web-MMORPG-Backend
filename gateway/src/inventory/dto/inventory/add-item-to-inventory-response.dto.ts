@@ -1,4 +1,4 @@
 export interface AddItemToInventoryResponseDTO {
-    message: string;
-    inventoryItemId: number;
+  message: string;
+  inventoryItemId: number;
 }

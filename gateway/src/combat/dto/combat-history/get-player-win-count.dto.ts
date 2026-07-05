@@ -1,3 +1,3 @@
 export interface GetPlayerWinCountDTO {
-    winCount: number;
+  winCount: number;
 }

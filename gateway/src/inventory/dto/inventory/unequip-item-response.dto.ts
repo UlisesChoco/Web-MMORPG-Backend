@@ -1,3 +1,3 @@
 export interface UnequipItemResponseDTO {
-    message: string;
+  message: string;
 }

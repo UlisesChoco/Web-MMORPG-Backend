@@ -1,10 +1,10 @@
 export interface GetCombatHistoryByPlayerResponse {
-    combats: Array<CombatHistory>;
+  combats: Array<CombatHistory>;
 }
 
 export interface CombatHistory {
-    enemyId: Long;
-    wasFatal: boolean;
-    date: string;
-    totalTurns: number;
+  enemyId: Long;
+  wasFatal: boolean;
+  date: string;
+  totalTurns: number;
 }

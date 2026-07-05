@@ -15,5 +15,5 @@ export enum NPCType {
   QUEST_GIVER = 2,
   TRAINER = 3,
   BANKER = 4,
-  BLACKSMITH = 5
+  BLACKSMITH = 5,
 }

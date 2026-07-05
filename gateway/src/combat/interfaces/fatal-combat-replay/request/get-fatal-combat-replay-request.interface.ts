@@ -1,3 +1,3 @@
 export interface GetFatalCombatReplayRequest {
-    combatId: string;
+  combatId: string;
 }

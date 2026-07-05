@@ -1,4 +1,9 @@
-export interface AddItemToInventoryRequestDTO {
-    playerId: Long;
-    itemId: Long;
+import { IsInt } from 'class-validator';
+
+export class AddItemToInventoryRequestDTO {
+  @IsInt()
+  playerId: number;
+
+  @IsInt()
+  itemId: number;
 }

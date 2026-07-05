@@ -1,1 +1,1 @@
-export interface ListNPCsRequest { }
+export interface ListNPCsRequest {}

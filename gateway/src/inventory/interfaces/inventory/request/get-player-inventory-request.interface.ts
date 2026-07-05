@@ -1,3 +1,3 @@
 export interface GetPlayerInventoryRequest {
-    playerId: Long;
+  playerId: Long;
 }

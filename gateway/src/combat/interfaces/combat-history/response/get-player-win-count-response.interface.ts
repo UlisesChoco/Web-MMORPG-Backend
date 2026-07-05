@@ -1,3 +1,3 @@
 export interface GetPlayerWinCountResponse {
-    winCount: Long;
+  winCount: Long;
 }

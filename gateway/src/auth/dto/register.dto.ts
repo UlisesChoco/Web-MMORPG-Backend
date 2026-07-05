@@ -1,4 +1,9 @@
+import { IsEmail, MinLength } from 'class-validator';
+
 export class RegisterDTO {
-    email: string;
-    password: string
+  @IsEmail()
+  email: string;
+
+  @MinLength(8)
+  password: string;
 }

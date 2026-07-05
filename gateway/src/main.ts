@@ -1,5 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
+import { ValidationPipe } from '@nestjs/common';
 import cookieParser from 'cookie-parser';
 import * as dotenv from 'dotenv';
 
@@ -10,15 +11,26 @@ async function bootstrap() {
 
   app.use(cookieParser());
 
+  app.useGlobalPipes(
+    new ValidationPipe({
+      transform: true,
+      whitelist: true,
+      forbidNonWhitelisted: true,
+    }),
+  );
+
   app.enableCors({
     origin: [
-       "http://localhost:6767",
-       "http://ulisesjustosaucedo.tech",
-       "https://ulisesjustosaucedo.tech"
+      'http://localhost:6767',
+      'http://ulisesjustosaucedo.tech',
+      'https://ulisesjustosaucedo.tech',
     ],
-    credentials: true
+    credentials: true,
   });
 
   await app.listen(process.env.PORT ?? 3000);
 }
-bootstrap();
+bootstrap().catch((err) => {
+  console.error('Failed to start application:', err);
+  process.exit(1);
+});

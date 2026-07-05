@@ -1,3 +1,3 @@
 export interface GetClassByIdRequest {
-    classId: number;
+  classId: number;
 }

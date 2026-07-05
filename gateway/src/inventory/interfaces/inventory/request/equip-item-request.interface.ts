@@ -1,4 +1,4 @@
 export interface EquipItemRequest {
-    inventoryItemId: Long;
-    playerLevel: Long;
+  inventoryItemId: Long;
+  playerLevel: Long;
 }

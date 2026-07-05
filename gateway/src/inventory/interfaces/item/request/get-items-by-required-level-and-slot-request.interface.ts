@@ -1,7 +1,7 @@
-import { SlotType } from "../../util/item.interface";
+import { SlotType } from '../../util/item.interface';
 
 export interface GetItemsByRequiredLevelAndSlotRequest {
-    requiredLevel: Long;
-    onlyHigherThan: boolean;
-    slot: SlotType;
+  requiredLevel: Long;
+  onlyHigherThan: boolean;
+  slot: SlotType;
 }
