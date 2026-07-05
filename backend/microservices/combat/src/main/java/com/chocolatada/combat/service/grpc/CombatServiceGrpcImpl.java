@@ -89,13 +89,24 @@ public class CombatServiceGrpcImpl extends CombatServiceGrpc.CombatServiceImplBa
                         .combatHistory(combatHistoryEntity)
                         .turnLog(objectMapper.writeValueAsString(turns))
                         .build();
-                fatalCombatReplayService.save(fatalCombatReplayEntity);
-                playerStubClientServiceGrpc.markPlayerAsDead(playerId);
+                fatalCombatReplayEntity = fatalCombatReplayService.save(fatalCombatReplayEntity);
+                try {
+                    playerStubClientServiceGrpc.markPlayerAsDead(playerId);
+                } catch (Exception e) {
+                    fatalCombatReplayService.delete(fatalCombatReplayEntity);
+                    combatHistoryService.delete(combatHistoryEntity);
+                    throw e;
+                }
                 log.info("Combate procesado. El jugador fue asesinado. Replay del combate fatal guardada.");
             } else {
                 loot = lootStubClientServiceGrpc.roll(enemyGrpc);
-                inventoryStubClientServiceGrpc.addItemToInventory(playerId, loot.getItemId());
-                playerStubClientServiceGrpc.updatePlayerData(playerId, enemyGrpc.getGold(), enemyGrpc.getExperience());
+                try {
+                    playerStubClientServiceGrpc.updatePlayerData(playerId, enemyGrpc.getGold(), enemyGrpc.getExperience());
+                    inventoryStubClientServiceGrpc.addItemToInventory(playerId, loot.getItemId());
+                } catch (Exception e) {
+                    combatHistoryService.delete(combatHistoryEntity);
+                    throw e;
+                }
                 log.info("Combate procesado. El jugador sobrevivió. Botín generado.");
             }
 

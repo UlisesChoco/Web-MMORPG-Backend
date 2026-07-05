@@ -14,4 +14,6 @@ public interface IFatalCombatReplayService {
     List<FatalCombatReplayDTO> getRecentFatalities(int limit) throws FatalCombatReplayException;
 
     FatalCombatReplayEntity save(FatalCombatReplayEntity entity);
+
+    void delete(FatalCombatReplayEntity entity);
 }

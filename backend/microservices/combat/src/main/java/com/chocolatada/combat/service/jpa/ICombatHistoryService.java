@@ -14,4 +14,6 @@ public interface ICombatHistoryService {
     Long getPlayerWinCount(Long playerId) throws CombatHistoryException;
 
     CombatHistoryEntity save(CombatHistoryEntity entity);
+
+    void delete(CombatHistoryEntity entity);
 }

@@ -52,4 +52,9 @@ public class FatalCombatReplayServiceImpl implements IFatalCombatReplayService {
     public FatalCombatReplayEntity save(FatalCombatReplayEntity entity) {
         return fatalCombatReplayRepository.save(entity);
     }
+
+    @Override
+    public void delete(FatalCombatReplayEntity entity) {
+        fatalCombatReplayRepository.delete(entity);
+    }
 }

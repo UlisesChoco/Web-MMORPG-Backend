@@ -48,4 +48,9 @@ public class CombatHistoryServiceImpl implements ICombatHistoryService {
     public CombatHistoryEntity save(CombatHistoryEntity entity) {
         return combatHistoryRepository.save(entity);
     }
+
+    @Override
+    public void delete(CombatHistoryEntity entity) {
+        combatHistoryRepository.delete(entity);
+    }
 }
