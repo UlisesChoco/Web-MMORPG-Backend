@@ -1,15 +1,6 @@
 import { IsInt, IsOptional, IsString, ValidateNested } from 'class-validator';
 import { Type } from 'class-transformer';
 
-export class UpdatePlayerRequestDTO {
-  @IsInt()
-  playerId: number;
-
-  @ValidateNested()
-  @Type(() => PlayerUpdateDataDTO)
-  updates: PlayerUpdateDataDTO;
-}
-
 export class PlayerUpdateDataDTO {
   @IsOptional()
   @IsString()
@@ -58,4 +49,13 @@ export class PlayerUpdateDataDTO {
   @IsOptional()
   @IsInt()
   evasionBonus?: number;
+}
+
+export class UpdatePlayerRequestDTO {
+  @IsInt()
+  playerId: number;
+
+  @ValidateNested()
+  @Type(() => PlayerUpdateDataDTO)
+  updates: PlayerUpdateDataDTO;
 }
