@@ -43,6 +43,13 @@ public class CombatHistoryServiceGrpcImpl extends CombatHistoryServiceGrpc.Comba
                             .withDescription(combatHistoryException.getMessage())
                             .asRuntimeException()
             );
+        } catch (Exception e) {
+            log.error("Error interno del servidor al obtener el historial de combate del jugador de ID " + request.getPlayerId(), e);
+            responseObserver.onError(
+                    Status.INTERNAL
+                            .withDescription("Error interno del servidor")
+                            .asRuntimeException()
+            );
         }
     }
 
@@ -70,6 +77,13 @@ public class CombatHistoryServiceGrpcImpl extends CombatHistoryServiceGrpc.Comba
                             .withDescription(combatHistoryException.getMessage())
                             .asRuntimeException()
             );
+        } catch (Exception e) {
+            log.error("Error interno del servidor al obtener los combates recientes", e);
+            responseObserver.onError(
+                    Status.INTERNAL
+                            .withDescription("Error interno del servidor")
+                            .asRuntimeException()
+            );
         }
     }
 
@@ -94,6 +108,13 @@ public class CombatHistoryServiceGrpcImpl extends CombatHistoryServiceGrpc.Comba
             responseObserver.onError(
                     Status.INVALID_ARGUMENT
                             .withDescription(combatHistoryException.getMessage())
+                            .asRuntimeException()
+            );
+        } catch (Exception e) {
+            log.error("Error interno del servidor al obtener el conteo de victorias del jugador de ID " + request.getPlayerId(), e);
+            responseObserver.onError(
+                    Status.INTERNAL
+                            .withDescription("Error interno del servidor")
                             .asRuntimeException()
             );
         }
