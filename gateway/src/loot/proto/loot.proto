@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package Loot;
+option java_multiple_files = true;
+option java_package = "com.chocolatada.loot.grpc";
+option java_outer_classname = "LootServiceProto";
+
+message GetEnemyDropTableRequest {
+  int32 enemy_id = 1;
+}
+
+message GetEnemyDropTableResponse {
+  repeated LootItem drop_table = 1;
+}
+
+message LootItem {
+  int32 item_id = 1;
+  float drop_chance = 3;
+}
+
+message RollEnemyLootRequest {
+  int32 enemy_id = 1;
+}
+
+message RollEnemyLootResponse {
+  bool dropped = 1;
+  optional int64 item_id = 2;
+}
+
+service LootService {
+  rpc GetEnemyDropTable (GetEnemyDropTableRequest) returns (GetEnemyDropTableResponse);
+  rpc RollEnemyLoot (RollEnemyLootRequest) returns (RollEnemyLootResponse);
+}

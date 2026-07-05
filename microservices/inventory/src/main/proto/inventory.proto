@@ -1,0 +1,93 @@
+syntax = "proto3";
+
+package Inventory;
+
+option java_multiple_files = true;
+option java_package = "com.chocolatada.inventory.grpc";
+option java_outer_classname = "InventoryServiceProto";
+
+import "util.proto";
+
+message GetPlayerInventoryRequest {
+  int64 player_id = 1;
+}
+
+message GetPlayerInventoryResponse {
+  string message = 1;
+  repeated Item items = 2;
+}
+
+message GetEquippedItemsRequest {
+  int64 player_id = 1;
+}
+
+message GetEquippedItemsResponse {
+  string message = 1;
+  repeated Item items = 2;
+}
+
+message AddItemToInventoryRequest {
+  int64 player_id = 1;
+  int64 item_id = 2;
+}
+
+message AddItemToInventoryResponse {
+  string message = 1;
+  int64 inventory_item_id = 2;
+}
+
+message RemoveItemFromInventoryRequest {
+  int64 inventory_item_id = 1;
+}
+
+message RemoveItemFromInventoryResponse {
+  string message = 1;
+}
+
+message EquipItemRequest {
+  int64 inventory_item_id = 1;
+  int64 player_level = 2;
+}
+
+message EquipItemResponse {
+  string message = 1;
+}
+
+message UnequipItemRequest {
+  int64 inventory_item_id = 1;
+}
+
+message UnequipItemResponse {
+  string message = 1;
+}
+
+message GetEquipmentStatBonusRequest {
+  int64 player_id = 1;
+}
+
+message GetEquipmentStatBonusResponse {
+  int32 hp = 1;
+  int32 atk = 2;
+  int32 def = 3;
+  int32 stamina = 4;
+  int32 accuracy = 5;
+  int32 evasion = 6;
+  float crit_rate = 7;
+  float crit_damage = 8;
+}
+
+service InventoryService {
+  rpc GetPlayerInventory(GetPlayerInventoryRequest) returns (GetPlayerInventoryResponse);
+
+  rpc GetEquippedItems(GetEquippedItemsRequest) returns (GetEquippedItemsResponse);
+
+  rpc AddItemToInventory(AddItemToInventoryRequest) returns (AddItemToInventoryResponse);
+
+  rpc RemoveItemFromInventory(RemoveItemFromInventoryRequest) returns (RemoveItemFromInventoryResponse);
+
+  rpc EquipItem(EquipItemRequest) returns (EquipItemResponse);
+
+  rpc UnequipItem(UnequipItemRequest) returns (UnequipItemResponse);
+
+  rpc GetEquipmentStatBonus(GetEquipmentStatBonusRequest) returns (GetEquipmentStatBonusResponse);
+}

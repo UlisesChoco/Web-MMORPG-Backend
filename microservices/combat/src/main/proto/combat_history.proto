@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package Combat;
+
+option java_multiple_files = true;
+option java_package = "com.chocolatada.combat.grpc";
+option java_outer_classname = "CombatHistoryProto";
+
+message GetCombatHistoryByPlayerRequest {
+  int64 player_id = 1;
+}
+
+message GetCombatHistoryByPlayerResponse {
+  repeated CombatHistory combats = 1;
+}
+
+message CombatHistory {
+  int64 enemy_id = 1;
+  bool was_fatal = 2;
+  string date = 3;
+  int32 total_turns = 4;
+}
+
+message GetRecentCombatsRequest {
+  int32 limit = 1;
+}
+
+message GetRecentCombatsResponse {
+  repeated CombatHistory combats = 1;
+}
+
+message GetPlayerWinCountRequest {
+  int64 player_id = 1;
+}
+
+message GetPlayerWinCountResponse {
+  int64 win_count = 1;
+}
+
+service CombatHistoryService {
+    rpc GetCombatHistoryByPlayer (GetCombatHistoryByPlayerRequest) returns (GetCombatHistoryByPlayerResponse);
+
+    rpc GetRecentCombats (GetRecentCombatsRequest) returns (GetRecentCombatsResponse);
+
+    rpc GetPlayerWinCount (GetPlayerWinCountRequest) returns (GetPlayerWinCountResponse);
+}

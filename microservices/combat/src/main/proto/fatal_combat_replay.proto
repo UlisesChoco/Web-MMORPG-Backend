@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package Combat;
+
+option java_multiple_files = true;
+option java_package = "com.chocolatada.combat.grpc";
+option java_outer_classname = "FatalCombatReplayProto";
+
+import "combat.proto";
+
+message GetFatalCombatReplayRequest {
+  string combat_id = 1;
+}
+
+message GetFatalCombatReplayResponse {
+  repeated CombatTurnGrpc turns = 1;
+}
+
+message GetRecentFatalitiesRequest {
+  int32 limit = 1;
+}
+
+message GetRecentFatalitiesResponse {
+  repeated FatalityEntry fatalities = 1;
+}
+
+message FatalityEntry {
+  int64 player_id = 2;
+  int64 enemy_id = 3;
+  string date = 4;
+}
+
+service FatalCombatReplayService {
+  rpc GetFatalCombatReplay (GetFatalCombatReplayRequest) returns (GetFatalCombatReplayResponse);
+
+  rpc GetRecentFatalities (GetRecentFatalitiesRequest) returns (GetRecentFatalitiesResponse);
+}

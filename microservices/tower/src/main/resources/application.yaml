@@ -1,0 +1,10 @@
+tower:
+  floors:
+      - floor: 1
+        level-range: "1-5"
+
+      - floor: 2
+        level-range: "6-10"
+
+      - floor: 3
+        level-range: "11-15"

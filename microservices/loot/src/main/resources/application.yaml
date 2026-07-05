@@ -1,0 +1,17 @@
+loot-tables:
+  enemy-item-drops:
+    - enemy-id: 1
+      item-id: 1
+      probability: 0.7
+
+    - enemy-id: 1
+      item-id: 2
+      probability: 0.6
+
+    - enemy-id: 1
+      item-id: 3
+      probability: 0.5
+
+    - enemy-id: 1
+      item-id: 4
+      probability: 0.1

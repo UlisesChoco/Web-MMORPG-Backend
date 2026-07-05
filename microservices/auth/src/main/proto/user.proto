@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package Auth;
+
+option java_multiple_files = true;
+option java_package = "com.chocolatada.auth.grpc";
+option java_outer_classname = "UserProto";
+
+import "google/protobuf/timestamp.proto";
+
+enum UserStatus {
+  PENDING = 0;
+  ACTIVE = 1;
+  BANNED = 2;
+}
+
+message User {
+  int64 id = 1;
+  string email = 2;
+  string password = 3;
+  UserStatus status = 4;
+  google.protobuf.Timestamp created_at = 5;
+}
+
+message RegisterUserRequest {
+  string email = 1;
+  string password = 2;
+}
+
+message RegisterUserResponse {
+  string message = 1;
+}
+
+message LoginUserRequest {
+  string email = 1;
+  string password = 2;
+}
+
+message LoginUserResponse {
+  string message = 1;
+  string jwt = 2;
+}
+
+service UserService {
+  rpc RegisterUser(RegisterUserRequest) returns (RegisterUserResponse);
+  rpc LoginUser(LoginUserRequest) returns (LoginUserResponse);
+}

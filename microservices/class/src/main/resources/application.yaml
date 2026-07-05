@@ -1,0 +1,24 @@
+game:
+  classes:
+    - name: Warrior
+      description: "A strong melee fighter with high defense."
+      crit-rate: 5
+      crit-damage: 150
+      hp: 150
+      atk: 30
+      def: 20
+      stamina: 50
+      accuracy: 20
+      evasion: 10
+
+config:
+  modifiers:
+    - name: "Warrior"
+      crit-rate-modifier: 1.0
+      crit-damage-modifier: 1.0
+      hp-modifier: 1.2
+      atk-modifier: 1.1
+      def-modifier: 1.3
+      stamina-modifier: 1.0
+      accuracy-modifier: 1.0
+      evasion-modifier: 1.0
