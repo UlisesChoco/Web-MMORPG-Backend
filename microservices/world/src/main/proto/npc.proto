@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package World;
+
+option java_multiple_files = true;
+option java_package = "com.chocolatada.world.grpc";
+option java_outer_classname = "NPCProto";
+
+enum NPCType {
+  NPC_TYPE_UNSPECIFIED = 0;
+  MERCHANT = 1;
+  QUEST_GIVER = 2;
+  TRAINER = 3;
+  BANKER = 4;
+  BLACKSMITH = 5;
+}
+
+message NPC {
+  int64 id = 1;
+  string name = 2;
+  string description = 3;
+  NPCType type = 4;
+}
+
+message GetNPCByIdRequest {
+  int64 npc_id = 1;
+}
+
+message GetNPCResponse {
+  NPC npc = 1;
+}
+
+message ListNPCsRequest { }
+
+message ListNPCsResponse {
+  repeated NPC npcs = 1;
+}
+
+service NPCService {
+  rpc GetNPCById(GetNPCByIdRequest) returns (GetNPCResponse);
+
+  rpc ListNPCs(ListNPCsRequest) returns (ListNPCsResponse);
+}
+

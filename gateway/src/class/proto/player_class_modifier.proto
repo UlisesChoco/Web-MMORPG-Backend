@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+<<<<<<< HEAD:gateway/src/class/proto/player_class_modifier.proto
+package Class;
+=======
+package com.chocolatada.playerclass;
+>>>>>>> microservice/class:backend/microservices/class/src/main/proto/player_class_modifier.proto
+
+option java_multiple_files = true;
+option java_package = "com.chocolatada.playerclass.grpc";
+option java_outer_classname = "PlayerClassModifierProto";
+
+message GetClassModifiersRequest {
+  int64 class_id = 1;
+}
+
+message GetClassModifiersResponse {
+  string message = 1;
+  ModifierData modifiers = 2;
+}
+
+message ModifierData {
+  int64 id = 1;
+  float crit_rate_modifier = 2;
+  float crit_damage_modifier = 3;
+  float hp_modifier = 4;
+  float atk_modifier = 5;
+  float def_modifier = 6;
+  float stamina_modifier = 7;
+  float accuracy_modifier = 8;
+  float evasion_modifier = 9;
+}
+
+service PlayerClassModifierService {
+  rpc GetClassModifiers(GetClassModifiersRequest) returns (GetClassModifiersResponse);
+}

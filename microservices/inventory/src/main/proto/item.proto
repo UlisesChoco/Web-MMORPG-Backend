@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package Inventory;
+
+option java_multiple_files = true;
+option java_package = "com.chocolatada.inventory.grpc";
+option java_outer_classname = "ItemServiceProto";
+
+import "util.proto";
+
+message GetItemsByRequiredLevelRequest {
+  int64 required_level = 1;
+  bool only_higher_than = 2;
+}
+
+message GetItemsByRequiredLevelResponse {
+  string message = 1;
+  repeated Item items = 2;
+}
+
+message GetItemsByRequiredLevelAndSlotRequest {
+  int64 required_level = 1;
+  bool only_higher_than = 2;
+  SlotType slot = 3;
+}
+
+message GetItemsByRequiredLevelAndSlotResponse {
+  string message = 1;
+  repeated Item items = 2;
+}
+
+service ItemService {
+  rpc GetItemsByRequiredLevel(GetItemsByRequiredLevelRequest) returns (GetItemsByRequiredLevelResponse);
+
+  rpc GetItemsByRequiredLevelAndSlot(GetItemsByRequiredLevelAndSlotRequest) returns (GetItemsByRequiredLevelAndSlotResponse);
+}
