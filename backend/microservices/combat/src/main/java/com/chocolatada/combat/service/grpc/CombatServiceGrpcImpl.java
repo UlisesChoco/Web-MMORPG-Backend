@@ -90,6 +90,7 @@ public class CombatServiceGrpcImpl extends CombatServiceGrpc.CombatServiceImplBa
                         .turnLog(objectMapper.writeValueAsString(turns))
                         .build();
                 fatalCombatReplayService.save(fatalCombatReplayEntity);
+                playerStubClientServiceGrpc.markPlayerAsDead(playerId);
                 log.info("Combate procesado. El jugador fue asesinado. Replay del combate fatal guardada.");
             } else {
                 loot = lootStubClientServiceGrpc.roll(enemyGrpc);
