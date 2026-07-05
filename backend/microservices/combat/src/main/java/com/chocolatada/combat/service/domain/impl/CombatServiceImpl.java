@@ -118,7 +118,8 @@ public class CombatServiceImpl implements ICombatService {
             }
         }
 
-        int newStamina = (source.getStamina() < 0) ? 1 : source.getStamina() - Formula.calculateStaminaCost(source);
+        int cost = Formula.calculateStaminaCost(source);
+        int newStamina = Math.max(0, source.getStamina() - cost);
         source.setStamina(newStamina);
 
         return Action.builder()
