@@ -1,0 +1,30 @@
+import { Module } from '@nestjs/common';
+import { ClientsModule, Transport } from '@nestjs/microservices';
+import { TowerPlayerProgressController } from '../controller/tower-player-progress.controller';
+
+@Module({
+  imports: [
+    ClientsModule.register([
+      {
+        name: 'TOWER_PLAYER_PROGRESS_PACKAGE',
+        transport: Transport.GRPC,
+        options: {
+          url: 'tower:9096',
+          package: 'Tower',
+          protoPath: 'src/tower/proto/tower_player_progress.proto',
+        },
+      },
+      {
+        name: 'PLAYER_PACKAGE',
+        transport: Transport.GRPC,
+        options: {
+          url: 'player:9095',
+          package: 'Player',
+          protoPath: 'src/player/proto/player.proto',
+        },
+      },
+    ]),
+  ],
+  controllers: [TowerPlayerProgressController],
+})
+export class TowerPlayerProgressModule {}
