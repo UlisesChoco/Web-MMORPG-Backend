@@ -1,7 +1,7 @@
-package com.example.demo.validator;
+package com.chocolatada.playerclass.validator;
 
-import com.example.demo.entity.PlayerClassModifierEntity;
-import com.example.demo.exception.InvalidPlayerClassModifierDataException;
+import com.chocolatada.playerclass.entity.PlayerClassModifierEntity;
+import com.chocolatada.playerclass.exception.InvalidPlayerClassModifierDataException;
 
 public class PlayerClassModifierValidator {
     public static boolean isValidModifier(PlayerClassModifierEntity modifier) throws InvalidPlayerClassModifierDataException {

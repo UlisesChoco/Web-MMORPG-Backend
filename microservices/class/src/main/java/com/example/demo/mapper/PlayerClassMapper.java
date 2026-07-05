@@ -1,11 +1,11 @@
-package com.example.demo.mapper;
+package com.chocolatada.playerclass.mapper;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.demo.configuration.resources.definition.player_class.ClassDefinition;
-import com.example.demo.entity.PlayerClassEntity;
-import com.example.demo.grpc.ClassData;
+import com.chocolatada.playerclass.configuration.resources.definition.player_class.ClassDefinition;
+import com.chocolatada.playerclass.entity.PlayerClassEntity;
+import com.chocolatada.playerclass.grpc.ClassData;
 
 public class PlayerClassMapper {
     public static PlayerClassEntity toPlayerClass(ClassDefinition classDef) {

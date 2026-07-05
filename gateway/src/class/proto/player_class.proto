@@ -1,9 +1,13 @@
 syntax = "proto3";
 
+<<<<<<< HEAD:gateway/src/class/proto/player_class.proto
 package Class;
+=======
+package com.chocolatada.playerclass;
+>>>>>>> microservice/class:backend/microservices/class/src/main/proto/player_class.proto
 
 option java_multiple_files = true;
-option java_package = "com.example.demo.grpc";
+option java_package = "com.chocolatada.playerclass.grpc";
 option java_outer_classname = "PlayerClassProto";
 
 message GetClassByIdRequest {

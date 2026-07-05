@@ -1,16 +1,16 @@
-package com.example.demo.service.jpa.impl;
+package com.chocolatada.playerclass.service.jpa.impl;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.example.demo.configuration.resources.definition.player_class.ClassesConfigurationProperties;
-import com.example.demo.entity.PlayerClassEntity;
-import com.example.demo.exception.InvalidPlayerClassDataException;
-import com.example.demo.mapper.PlayerClassMapper;
-import com.example.demo.repository.PlayerClassRepository;
-import com.example.demo.service.jpa.IPlayerClassService;
-import com.example.demo.validator.PlayerClassValidator;
+import com.chocolatada.playerclass.configuration.resources.definition.player_class.ClassesConfigurationProperties;
+import com.chocolatada.playerclass.entity.PlayerClassEntity;
+import com.chocolatada.playerclass.exception.InvalidPlayerClassDataException;
+import com.chocolatada.playerclass.mapper.PlayerClassMapper;
+import com.chocolatada.playerclass.repository.PlayerClassRepository;
+import com.chocolatada.playerclass.service.jpa.IPlayerClassService;
+import com.chocolatada.playerclass.validator.PlayerClassValidator;
 
 import lombok.RequiredArgsConstructor;
 

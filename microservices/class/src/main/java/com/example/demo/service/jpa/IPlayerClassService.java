@@ -1,9 +1,9 @@
-package com.example.demo.service.jpa;
+package com.chocolatada.playerclass.service.jpa;
 
 import java.util.List;
 
-import com.example.demo.entity.PlayerClassEntity;
-import com.example.demo.exception.InvalidPlayerClassDataException;
+import com.chocolatada.playerclass.entity.PlayerClassEntity;
+import com.chocolatada.playerclass.exception.InvalidPlayerClassDataException;
 
 public interface IPlayerClassService {
     PlayerClassEntity findById(Long id) throws InvalidPlayerClassDataException;

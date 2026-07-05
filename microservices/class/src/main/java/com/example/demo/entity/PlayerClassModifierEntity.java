@@ -1,4 +1,4 @@
-package com.example.demo.entity;
+package com.chocolatada.playerclass.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

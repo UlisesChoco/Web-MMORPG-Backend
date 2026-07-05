@@ -1,13 +1,13 @@
-package com.example.demo.service.grpc;
+package com.chocolatada.playerclass.service.grpc;
 
-import com.example.demo.entity.PlayerClassModifierEntity;
-import com.example.demo.exception.InvalidPlayerClassDataException;
-import com.example.demo.grpc.GetClassModifiersRequest;
-import com.example.demo.grpc.GetClassModifiersResponse;
-import com.example.demo.grpc.ModifierData;
-import com.example.demo.grpc.PlayerClassModifierServiceGrpc;
-import com.example.demo.mapper.PlayerClassModifierMapper;
-import com.example.demo.service.jpa.IPlayerClassModifierService;
+import com.chocolatada.playerclass.entity.PlayerClassModifierEntity;
+import com.chocolatada.playerclass.exception.InvalidPlayerClassDataException;
+import com.chocolatada.playerclass.grpc.GetClassModifiersRequest;
+import com.chocolatada.playerclass.grpc.GetClassModifiersResponse;
+import com.chocolatada.playerclass.grpc.ModifierData;
+import com.chocolatada.playerclass.grpc.PlayerClassModifierServiceGrpc;
+import com.chocolatada.playerclass.mapper.PlayerClassModifierMapper;
+import com.chocolatada.playerclass.service.jpa.IPlayerClassModifierService;
 import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 import lombok.RequiredArgsConstructor;

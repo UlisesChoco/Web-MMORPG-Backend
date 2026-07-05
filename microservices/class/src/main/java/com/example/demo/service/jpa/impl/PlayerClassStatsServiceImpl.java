@@ -1,16 +1,16 @@
-package com.example.demo.service.jpa.impl;
+package com.chocolatada.playerclass.service.jpa.impl;
 
-import com.example.demo.dto.BonusStatsDTO;
-import com.example.demo.dto.PlayerStatsDTO;
+import com.chocolatada.playerclass.dto.BonusStatsDTO;
+import com.chocolatada.playerclass.dto.PlayerStatsDTO;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.entity.PlayerClassEntity;
-import com.example.demo.entity.PlayerClassModifierEntity;
-import com.example.demo.exception.InvalidPlayerClassDataException;
-import com.example.demo.service.formula.ScalateStatFormula;
-import com.example.demo.service.jpa.IPlayerClassModifierService;
-import com.example.demo.service.jpa.IPlayerClassService;
-import com.example.demo.service.jpa.IPlayerClassStatsService;
+import com.chocolatada.playerclass.entity.PlayerClassEntity;
+import com.chocolatada.playerclass.entity.PlayerClassModifierEntity;
+import com.chocolatada.playerclass.exception.InvalidPlayerClassDataException;
+import com.chocolatada.playerclass.service.formula.ScalateStatFormula;
+import com.chocolatada.playerclass.service.jpa.IPlayerClassModifierService;
+import com.chocolatada.playerclass.service.jpa.IPlayerClassService;
+import com.chocolatada.playerclass.service.jpa.IPlayerClassStatsService;
 
 import lombok.RequiredArgsConstructor;
 

@@ -1,4 +1,4 @@
-package com.example.demo.dto;
+package com.chocolatada.playerclass.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

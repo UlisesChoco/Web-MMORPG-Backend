@@ -1,4 +1,4 @@
-package com.example.demo.exception;
+package com.chocolatada.playerclass.exception;
 
 public class InvalidPlayerClassModifierDataException extends Exception {
     public InvalidPlayerClassModifierDataException(String message) {

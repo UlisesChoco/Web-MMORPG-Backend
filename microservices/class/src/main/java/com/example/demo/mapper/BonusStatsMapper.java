@@ -1,9 +1,9 @@
-package com.example.demo.mapper;
+package com.chocolatada.playerclass.mapper;
 
-import com.example.demo.grpc.BonusStats;
+import com.chocolatada.playerclass.grpc.BonusStats;
 
 public class BonusStatsMapper {
-    public static BonusStats toBonusStatsGrpc(com.example.demo.dto.BonusStatsDTO bonusStatsDto) {
+    public static BonusStats toBonusStatsGrpc(com.chocolatada.playerclass.dto.BonusStatsDTO bonusStatsDto) {
         BonusStats bonusStatsGrpc = BonusStats.newBuilder()
                 .setHp(bonusStatsDto.getHp())
                 .setAtk(bonusStatsDto.getAtk())
@@ -16,8 +16,8 @@ public class BonusStatsMapper {
         return bonusStatsGrpc;
     }
 
-    public static com.example.demo.dto.BonusStatsDTO toBonusStatsDto(BonusStats bonusStatsGrpc) {
-        com.example.demo.dto.BonusStatsDTO bonusStatsDto = new com.example.demo.dto.BonusStatsDTO();
+    public static com.chocolatada.playerclass.dto.BonusStatsDTO toBonusStatsDto(BonusStats bonusStatsGrpc) {
+        com.chocolatada.playerclass.dto.BonusStatsDTO bonusStatsDto = new com.chocolatada.playerclass.dto.BonusStatsDTO();
         bonusStatsDto.setHp(bonusStatsGrpc.getHp());
         bonusStatsDto.setAtk(bonusStatsGrpc.getAtk());
         bonusStatsDto.setDef(bonusStatsGrpc.getDef());

@@ -1,4 +1,4 @@
-package com.example.demo.configuration.resources.definition.player_class;
+package com.chocolatada.playerclass.configuration.resources.definition.player_class;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

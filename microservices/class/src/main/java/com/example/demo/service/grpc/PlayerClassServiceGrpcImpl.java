@@ -1,15 +1,15 @@
-package com.example.demo.service.grpc;
+package com.chocolatada.playerclass.service.grpc;
 
-import com.example.demo.dto.BonusStatsDTO;
-import com.example.demo.dto.PlayerStatsDTO;
-import com.example.demo.entity.PlayerClassEntity;
-import com.example.demo.exception.InvalidPlayerClassDataException;
-import com.example.demo.grpc.*;
-import com.example.demo.mapper.BonusStatsMapper;
-import com.example.demo.mapper.PlayerClassMapper;
-import com.example.demo.mapper.PlayerClassStatsMapper;
-import com.example.demo.service.jpa.IPlayerClassService;
-import com.example.demo.service.jpa.IPlayerClassStatsService;
+import com.chocolatada.playerclass.dto.BonusStatsDTO;
+import com.chocolatada.playerclass.dto.PlayerStatsDTO;
+import com.chocolatada.playerclass.entity.PlayerClassEntity;
+import com.chocolatada.playerclass.exception.InvalidPlayerClassDataException;
+import com.chocolatada.playerclass.grpc.*;
+import com.chocolatada.playerclass.mapper.BonusStatsMapper;
+import com.chocolatada.playerclass.mapper.PlayerClassMapper;
+import com.chocolatada.playerclass.mapper.PlayerClassStatsMapper;
+import com.chocolatada.playerclass.service.jpa.IPlayerClassService;
+import com.chocolatada.playerclass.service.jpa.IPlayerClassStatsService;
 import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 import lombok.RequiredArgsConstructor;
@@ -65,7 +65,7 @@ public class PlayerClassServiceGrpcImpl extends PlayerClassServiceGrpc.PlayerCla
             BonusStatsDTO bonus = BonusStatsMapper.toBonusStatsDto(request.getBonus());
             int level = request.getLevel();
             PlayerStatsDTO playerStatsDto = playerClassStatsService.getScaledPlayerClassStats(classId, bonus, level);
-            com.example.demo.grpc.ScaledStats scaledStatsGrpc = PlayerClassStatsMapper.toScaledStatsGrpc(playerStatsDto);
+            com.chocolatada.playerclass.grpc.ScaledStats scaledStatsGrpc = PlayerClassStatsMapper.toScaledStatsGrpc(playerStatsDto);
 
             GetScaledClassStatsResponse response = GetScaledClassStatsResponse.newBuilder()
                     .setMessage("Success")

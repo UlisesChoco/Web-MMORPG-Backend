@@ -1,4 +1,4 @@
-package com.example.demo.service.formula;
+package com.chocolatada.playerclass.service.formula;
 
 public class ScalateStatFormula {
     public static int calculateStatAtLevel(float baseStat, float modifier, int bonus, int level) {

@@ -1,7 +1,7 @@
-package com.example.demo.service.jpa;
+package com.chocolatada.playerclass.service.jpa;
 
-import com.example.demo.entity.PlayerClassModifierEntity;
-import com.example.demo.exception.InvalidPlayerClassDataException;
+import com.chocolatada.playerclass.entity.PlayerClassModifierEntity;
+import com.chocolatada.playerclass.exception.InvalidPlayerClassDataException;
 
 public interface IPlayerClassModifierService {
     void saveAllFromResources() throws InvalidPlayerClassDataException;

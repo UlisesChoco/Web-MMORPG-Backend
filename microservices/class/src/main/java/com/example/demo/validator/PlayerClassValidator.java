@@ -1,12 +1,12 @@
-package com.example.demo.validator;
+package com.chocolatada.playerclass.validator;
 
 import java.util.List;
 import java.util.regex.Pattern;
 
-import com.example.demo.configuration.resources.definition.player_class.ClassDefinition;
-import com.example.demo.entity.PlayerClassEntity;
-import com.example.demo.exception.InvalidPlayerClassDataException;
-import com.example.demo.mapper.PlayerClassMapper;
+import com.chocolatada.playerclass.configuration.resources.definition.player_class.ClassDefinition;
+import com.chocolatada.playerclass.entity.PlayerClassEntity;
+import com.chocolatada.playerclass.exception.InvalidPlayerClassDataException;
+import com.chocolatada.playerclass.mapper.PlayerClassMapper;
 
 public class PlayerClassValidator {
     private final static String NAME_REGEX = "^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$";

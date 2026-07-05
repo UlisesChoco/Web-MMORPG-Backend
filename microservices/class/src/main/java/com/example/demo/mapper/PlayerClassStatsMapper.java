@@ -1,7 +1,7 @@
-package com.example.demo.mapper;
+package com.chocolatada.playerclass.mapper;
 
-import com.example.demo.dto.PlayerStatsDTO;
-import com.example.demo.grpc.ScaledStats;
+import com.chocolatada.playerclass.dto.PlayerStatsDTO;
+import com.chocolatada.playerclass.grpc.ScaledStats;
 
 public class PlayerClassStatsMapper {
     public static ScaledStats toScaledStatsGrpc(PlayerStatsDTO playerStatsDto) {

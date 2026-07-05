@@ -1,8 +1,8 @@
-package com.example.demo.mapper;
+package com.chocolatada.playerclass.mapper;
 
-import com.example.demo.configuration.resources.definition.player_class_modifier.ClassModifierDefinition;
-import com.example.demo.entity.PlayerClassModifierEntity;
-import com.example.demo.grpc.ModifierData;
+import com.chocolatada.playerclass.configuration.resources.definition.player_class_modifier.ClassModifierDefinition;
+import com.chocolatada.playerclass.entity.PlayerClassModifierEntity;
+import com.chocolatada.playerclass.grpc.ModifierData;
 
 public class PlayerClassModifierMapper {
     public static PlayerClassModifierEntity toPlayerClassModifier(ClassModifierDefinition definition) {

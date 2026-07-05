@@ -1,10 +1,10 @@
-package com.example.demo;
+package com.chocolatada.playerclass;
 
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import com.example.demo.service.jpa.IPlayerClassModifierService;
-import com.example.demo.service.jpa.IPlayerClassService;
+import com.chocolatada.playerclass.service.jpa.IPlayerClassModifierService;
+import com.chocolatada.playerclass.service.jpa.IPlayerClassService;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
