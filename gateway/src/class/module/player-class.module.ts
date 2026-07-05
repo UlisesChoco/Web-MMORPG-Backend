@@ -10,7 +10,7 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
         transport: Transport.GRPC,
         options: {
           url: 'class:9091',
-          package: 'Class',
+          package: 'com.chocolatada.playerclass',
           protoPath: 'src/class/proto/player_class.proto',
         },
       },
